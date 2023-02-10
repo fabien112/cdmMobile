@@ -1,0 +1,234 @@
+
+
+
+<ion-content>
+
+
+  <div class="container" *ngIf="!Finance&&!Classe">
+    <ion-spinner name="lines" class="iteming"> </ion-spinner>
+  </div>
+
+  <br><br>
+
+  <ion-segment color="primary" [(ngModel)]="yudsegment">
+    <ion-segment-button value="pin">
+      <strong> Inscription  </strong>
+    </ion-segment-button>
+    <ion-segment-button value="today" checked >
+     <strong> Tranche 1</strong>
+    </ion-segment-button>
+    <ion-segment-button value="heart">
+      <strong> Tranche 2</strong>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <br><br>
+
+ <div>
+
+   <div [ngSwitch]="yudsegment">
+
+     <div *ngSwitchCase="'today'">
+
+       <ion-list *ngIf="Finance&&Classe">
+         <ion-item>
+
+           <ion-label> <strong>Total  </strong></ion-label>
+           <p>{{Classe.classe.scolarite_Classe}} F</p>
+
+         </ion-item>
+         <ion-item>
+
+
+           <ion-label><strong>Payé </strong></ion-label>
+           <p>{{Finance.tranche1}} F</p>
+
+         </ion-item>
+
+         <ion-item>
+
+           <ion-label><strong>Reste </strong></ion-label>
+           <p> {{Classe.classe.scolarite_Classe-Finance.tranche1}} F </p>
+
+         </ion-item >
+
+         <ion-item  lines ="none">
+           <ion-label><strong>Délai </strong></ion-label>
+           <p> 15/10/2022  </p>
+         </ion-item>
+       </ion-list>
+
+     </div>
+
+
+     <div *ngSwitchCase="'heart'">
+
+       <ion-list *ngIf="Finance&&Classe">
+         <ion-item>
+
+           <ion-label><strong>Total </strong></ion-label>
+           <br>
+           <p>{{Classe.classe.inscription_Classe}} F </p>
+
+         </ion-item>
+         <ion-item>
+
+           <ion-label><strong>Payé </strong></ion-label>
+           <br>
+           <p>{{Finance.tranche2}} F </p>
+
+         </ion-item>
+
+         <ion-item lines="none">
+
+           <ion-label><strong>Reste </strong></ion-label>
+
+           <p>{{Classe.classe.inscription_Classe - Finance.tranche2}} F </p>
+
+         </ion-item>
+
+         <ion-item  lines ="none">
+           <ion-label><strong>Délai </strong></ion-label>
+           <p> 15/12/2022  </p>
+         </ion-item>
+       </ion-list>
+
+     </div>
+
+     <div *ngSwitchCase="'pin'">
+
+
+       <ion-list *ngIf="Finance&&Classe">
+         <ion-item>
+
+           <ion-label><strong>Total </strong></ion-label>
+           <p>{{Classe.classe.scolariteaff_Classe}} F </p>
+
+         </ion-item>
+         <ion-item>
+
+           <ion-label><strong>Payé </strong></ion-label>
+           <p>{{Finance.ape}} F </p>
+
+         </ion-item>
+
+         <ion-item>
+
+           <ion-label><strong>Reste </strong></ion-label>
+           <p>{{Classe.classe.scolariteaff_Classe - Finance.ape}} F </p>
+
+         </ion-item>
+
+         <ion-item  lines ="none">
+           <ion-label><strong>Délai </strong></ion-label>
+           <p> Immédiat  </p>
+         </ion-item>
+       </ion-list>
+
+
+
+
+     </div>
+   </div>
+
+ </div>
+
+  <img *ngIf="Finance&&Classe" src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/5/8/9583f24773_50181822_defi-finance-de-centralise-e.jpg" alt="">
+
+
+</ion-content>
+<!--<ion-content>-->
+
+  <!--<ion-card *ngIf="Finance&&Classe">-->
+    <!--<ion-card-header color="danger">-->
+      <!--<ion-card-subtitle><strong> TRANCHE 1 </strong></ion-card-subtitle>-->
+    <!--</ion-card-header>-->
+    <!--<ion-card-content >-->
+
+      <!--<ion-list >-->
+        <!--<ion-item>-->
+          <!--<ion-label>-->
+            <!--<h2> Total a payer </h2>-->
+            <!--<p>{{Classe.classe.scolarite_Classe}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+        <!--<ion-item>-->
+          <!--<ion-label>-->
+            <!--<h2> Déja payé  </h2>-->
+            <!--<p>{{Finance.tranche1}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+
+        <!--<ion-item lines="none">-->
+          <!--<ion-label color="danger">-->
+            <!--<h2> Reste </h2>-->
+            <!--<p> {{Classe.classe.scolarite_Classe-Finance.tranche1}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+      <!--</ion-list>-->
+    <!--</ion-card-content>-->
+
+  <!--</ion-card>-->
+
+  <!--<ion-card *ngIf="Finance&&Classe">-->
+    <!--<ion-card-header color="primary">-->
+      <!--<ion-card-subtitle><strong> TRANCHE 2 </strong></ion-card-subtitle>-->
+    <!--</ion-card-header>-->
+    <!--<ion-card-content >-->
+      <!--<ion-list >-->
+        <!--<ion-item>-->
+          <!--<ion-label>-->
+            <!--<h2> Total a payer </h2>-->
+            <!--<p>{{Classe.classe.inscription_Classe}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+        <!--<ion-item>-->
+          <!--<ion-label>-->
+            <!--<h2> Déja payé  </h2>-->
+            <!--<p>{{Finance.tranche2}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+
+        <!--<ion-item lines="none">-->
+          <!--<ion-label color="danger">-->
+            <!--<h2> Reste </h2>-->
+            <!--<p>{{Classe.classe.inscription_Classe - Finance.tranche2}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+      <!--</ion-list>-->
+    <!--</ion-card-content>-->
+
+  <!--</ion-card>-->
+
+  <!--<ion-card *ngIf="Finance&&Classe">-->
+    <!--<ion-card-header color="success">-->
+      <!--<ion-card-subtitle><strong> APE ou TRANCHE 3 </strong></ion-card-subtitle>-->
+    <!--</ion-card-header>-->
+    <!--<ion-card-content >-->
+      <!--<ion-list >-->
+        <!--<ion-item>-->
+          <!--<ion-label>-->
+            <!--<h2> Total a payer </h2>-->
+            <!--<p>{{Classe.classe.scolariteaff_Classe}} </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+        <!--<ion-item>-->
+          <!--<ion-label>-->
+            <!--<h2> Déja payé  </h2>-->
+            <!--<p>{{Finance.ape}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+
+        <!--<ion-item lines="none">-->
+          <!--<ion-label color="danger">-->
+            <!--<h2> Reste </h2>-->
+            <!--<p>{{Classe.classe.scolariteaff_Classe - Finance.ape}} Fcfa </p>-->
+          <!--</ion-label>-->
+        <!--</ion-item>-->
+      <!--</ion-list>-->
+    <!--</ion-card-content>-->
+
+  <!--</ion-card>-->
+
+<!--</ion-content>-->

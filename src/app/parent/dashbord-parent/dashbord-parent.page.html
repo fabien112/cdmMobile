@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+
+    <ion-title style="font-size: 13px"> {{user.nom}} {{user.prenom}} <br>
+      <span style="text-align:center; font-size:11px" class="ion-text-center"> Parent d'élève au Collège Des  Meilleurs </span>
+    </ion-title>
+    <!--<ion-title style="font-size: 15px"> {{user.nom}} {{user.prenom}} <br>-->
+      <!--<span style="text-align:center; font-size:11px" class="ion-text-center"> Parent d'élève au Collège Des  Meilleurs </span>-->
+
+    <!--</ion-title>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  *ngIf="resp">
+
+
+  <div class="header" *ngIf="user">
+
+  </div>
+  <div class="flex" *ngIf="user">
+    <div class="box-border">
+      <div class="border-white">
+        <div class="img-box">
+          <img  src="../../../assets/img/profile.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngFor="let m of resp">
+
+    <ion-list >
+
+      <ion-item  item-start (click)="details(m)"  >
+        <ion-thumbnail slot="start">
+          <img src="{{urlPhoto}}{{m.user.photo}}">
+        </ion-thumbnail>
+        <ion-label>
+
+          <h6> {{m.classe.libelleClasse}}</h6>
+          <p>{{m.matricule}}  </p>
+          <p>{{m.nom}}   {{m.prenom}} </p>
+
+        </ion-label>
+
+
+        <!--<ion-icon name="arrow-forward-outline" item-end ></ion-icon>-->
+
+        <ion-icon name="chevron-forward"  item-end ></ion-icon>
+
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+
+  <!--<div >-->
+
+    <!--<ion-list >-->
+
+      <!--<ion-row>-->
+        <!--<ion-col *ngFor="let m of resp"  size="6">-->
+          <!--<ion-card  item-start (click)="details(m)">-->
+
+            <!--<ion-card-header color="primary" class="ion-text-center">-->
+
+              <!--{{m.classe.libelleClasse}}-->
+
+            <!--</ion-card-header>-->
+
+            <!--<br>-->
+
+            <!--<ion-avatar>-->
+              <!--<img src="{{urlPhoto}}{{m.user.photo}}" width="100%" height="80px" style="padding-left:20px">-->
+
+            <!--</ion-avatar>-->
+
+
+            <!--<p class="ion-text-center" style="font-size: 10px">-->
+
+
+              <!--{{m.nom}} {{m.prenom}}-->
+
+
+            <!--</p>-->
+          <!--</ion-card>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+    <!--</ion-list>-->
+
+  <!--</div>-->
+</ion-content>
+
+<!--<ion-footer>-->
+<!--<ion-toolbar color="primary">-->
+<!--<ion-title></ion-title>-->
+<!--</ion-toolbar>-->
+<!--</ion-footer>-->

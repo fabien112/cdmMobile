@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start" (click)="backPage">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title> Quizz en ligne </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <div class="container" *ngIf="!devoirs">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+  <div>
+    <img width="100%" src="../../../assets/img/classes.PNG" alt="">
+  </div>
+
+  <br>
+
+  <ion-item lines="none" *ngIf="devoirs==''" style="color: #ff0f3a">
+    Aucun questionnaire crée...
+  </ion-item>
+
+  <ion-card *ngFor="let m of devoirs">
+
+    <ion-item  item-start  (click)="details(m)" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="https://image.shutterstock.com/image-vector/pdf-icon-on-blue-background-260nw-399976660.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h6>  {{m.libelle}} </h6>
+        <p> {{m.classe.libelleClasse}}  </p>
+
+        <p>{{ m.matiere.libelle }}</p>
+
+        <p> publié le {{m.created_at|date:'dd/MM/yy'}}</p>
+
+
+      </ion-label>
+
+
+        <ion-icon name="arrow-forward-outline"  (click) = "presentActionSheet(m)"></ion-icon>
+
+
+
+    </ion-item>
+  </ion-card>
+
+
+</ion-content>

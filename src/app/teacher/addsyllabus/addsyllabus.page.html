@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Nouveau syllabus   </ion-title>
+    <ion-buttons slot="end" icon-only>
+      <ion-button color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <br>
+
+    <ion-item >
+
+      <ion-input placeholder="Nom du chapitre " [(ngModel)]="dat['chapitre']" type="text"> </ion-input>
+    </ion-item>
+
+  <ion-item>
+    <ion-label>Classe</ion-label>
+    <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']" interface="popover" (ionChange)="charger()">
+      <ion-select-option value={{m.classe.id}} *ngFor="let m of classes" >
+        {{m.classe.libelleClasse}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Matière</ion-label>
+    <ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['matiere']">
+      <ion-select-option value={{m.id}} *ngFor="let m of maiteres" >
+        {{m.libelle}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+
+
+    <ion-input placeholder="Durée  en heure "[(ngModel)]="dat['duree']" type="number"> </ion-input>
+
+  </ion-item>
+
+
+  <ion-item-divider color="primary">
+    <ion-label> Les objectifs du cour  </ion-label>
+  </ion-item-divider>
+  <br>
+
+ <ion-list *ngFor="let input of dat.inputs1  let k = index;">
+
+   <!--<ion-item>-->
+     <!--<ion-label>Chapitre </ion-label>-->
+     <!--<ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['chapitre']">-->
+       <!--<ion-select-option value={{m.id}} *ngFor="let m of maiteres" >-->
+         <!--{{m.libelle}}-->
+       <!--</ion-select-option>-->
+     <!--</ion-select>-->
+   <!--</ion-item>-->
+
+   <ion-item  >
+
+     <ion-label >
+
+       <!--OB-->
+
+       <!--{{ k + 1 }}-->
+
+       <p>
+
+         <ion-input type="text" [(ngModel)]= "input.objectif "  placeholder="Entrer l'objectif {{k+1}}"></ion-input>
+
+       </p>
+
+     </ion-label>
+     <br>
+
+     <ion-icon item-end slot="end" style="font-size:25px;color:red"  (click)="remove( k)" *ngIf=" k ||(!k && dat.inputs1.length >1)" name="remove-circle-outline"></ion-icon>
+     <ion-icon item-end  slot="end" style="font-size:25px;color:green" (click)="add( k)" *ngIf="  k == dat.inputs1 .length - 1 " name="add-circle-outline"></ion-icon>
+
+   </ion-item>
+
+ </ion-list>
+
+
+  <ion-item-divider color="primary">
+    <ion-label> Les parties du cour  </ion-label>
+  </ion-item-divider>
+
+  <br>
+
+  <ion-list *ngFor="let input of dat.inputs2  let k = index;">
+
+    <ion-item lines="none">
+
+      <ion-label>
+
+        <ion-input [(ngModel)]= " input.partie "  placeholder="Titre  de la partie {{k+1}}"></ion-input>
+
+
+    </ion-label>
+      <br>
+
+      <ion-icon item-end slot="end" style="font-size:25px;color:red"  (click)="remove2(k)" *ngIf=" k ||(!k && dat.inputs2.length >1)" name="remove-circle-outline"></ion-icon>
+      <ion-icon item-end  slot="end" style="font-size:25px;color:green" (click)="add2(k)" *ngIf="  k == dat.inputs2.length - 1 " name="add-circle-outline"></ion-icon>
+
+    </ion-item>
+
+
+    <ion-item lines="none">
+
+      <ion-label>
+
+        <ion-input [(ngModel)]= " input.exercie "  placeholder="Exercice de la partie {{k+1}}"></ion-input>
+
+
+      </ion-label>
+
+      <br>
+
+
+    </ion-item>
+
+  </ion-list>
+
+  <br>
+
+  <ion-button  color="primary"    expand="full" (click)="Valider()" [disabled]="dat.matiere==''||dat.classeName==''||dat.chapitre==''||dat.duree==''">
+
+    Enregistrer
+
+  </ion-button>
+
+
+</ion-content>

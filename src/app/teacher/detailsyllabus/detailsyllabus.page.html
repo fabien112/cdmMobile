@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title> Détail du chapitre  </ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="light" (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="container" *ngIf="!Details">
+        <ion-spinner name="lines" class="iteming"></ion-spinner>
+    </div>
+    <div>
+        <img src="../../../assets/img/classes.PNG" alt="">
+    </div>
+
+
+    <h3 class="ion-padding" style="text-align: center"> <ion-badge>{{Details.chapitre}}</ion-badge></h3>
+
+    <div class="ion-padding">
+
+        <ion-segment color="primary" [(ngModel)]="yudsegment">
+            <ion-segment-button value="today">
+                OBJECTIFS
+            </ion-segment-button>
+            <ion-segment-button value="month">
+                PARTIES
+            </ion-segment-button>
+
+        </ion-segment>
+        <br>
+
+
+        <div [ngSwitch]="yudsegment">
+
+            <ion-list *ngSwitchCase="'today'">
+
+                <ion-list-header>
+
+                    A la fin de ce chapitre, l'élève devrait  entre capable de :
+
+                </ion-list-header>
+
+                <ion-item item-start  lines ="none"  >
+
+                    <ion-label>
+
+                        <ul>
+                            <li *ngFor="let m of Details.objectif">   {{m.libelle}} </li>
+                        </ul>
+
+
+
+                    </ion-label>
+
+
+                </ion-item>
+
+
+            </ion-list>
+
+            <ion-list *ngSwitchCase="'month'">
+
+                <ion-list-header>
+
+                    Les parties et exercices  de ce chapitre
+
+                </ion-list-header>
+
+                <ion-item  lines="none">
+
+                    <ion-label>
+
+                        <div item-start  *ngFor="let m of Details.partie">
+
+                            <ul style="padding-left: 20px">
+                                <li>{{m.libelle}}</li>
+                            </ul>
+
+                            <p  style="padding-left: 40px"> {{m.exercice}} </p>
+
+                        </div>
+
+                    </ion-label>
+
+                </ion-item>
+
+
+            </ion-list>
+
+        </div>
+
+
+    </div>
+
+
+
+</ion-content>

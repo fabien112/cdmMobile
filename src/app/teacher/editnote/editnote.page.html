@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Note   </ion-title>
+    <ion-buttons slot="end" icon-only>
+      <ion-button color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+
+
+    <ion-item  >
+
+      <ion-label >
+
+          <ion-input type="text"  [(ngModel)]= "da['note']"   placeholder="Entrer la note"></ion-input>
+
+      </ion-label>
+
+    </ion-item>
+
+  </ion-list>
+
+
+
+  <br>
+
+
+
+ <ion-row>
+   <ion-col>
+     <ion-button  color="primary"    expand="full" (click)="Valider()" [disabled]="da.note==''">
+
+       Enregistrer
+
+     </ion-button>
+   </ion-col>
+ </ion-row>
+
+
+</ion-content>

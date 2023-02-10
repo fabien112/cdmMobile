@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ions-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ions-buttons>
+
+
+    <ions-buttons *ngIf="actua==true"  slot="end" (click)="afficher()">
+     Actualiser
+    </ions-buttons>
+
+
+
+    <!--</ion-button>-->
+    <!--</ion-buttons>-->
+
+    <ion-title >  Notes   </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Classe</ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']" interface="popover" (ionChange)="charger()">
+          <ion-select-option value={{m.classe.id}} *ngFor="let m of classes" >
+            {{m.classe.libelleClasse}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Matière</ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['matiere']">
+          <ion-select-option value={{m.id}} *ngFor="let m of maiteres" >
+            {{m.libelle}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+
+      <ion-item *ngIf="evaluations">
+        <ion-label> Evaluation   </ion-label>
+        <ion-select okText="Ok" cancelText="Annuler" [(ngModel)]="dat['libelleEvaluation']" interface="popover">
+
+          <ion-select-option value={{eval.id}} *ngFor="let eval of evaluations" >
+            {{eval.libelle}}
+          </ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-row>
+      <ion-col size="12" >
+        <ion-button  color="primary"  expand="full" (click)="afficher()" [disabled]="dat.libelleEvaluation==''||dat.matiere==''||dat.idClasse==''">
+
+          AFFICHER
+
+        </ion-button>
+      </ion-col>
+
+
+      <!--<ion-col size="3">-->
+        <!--<ion-button expand="full" color="dark"   (click)="afficher()" [disabled]="dat.libelleEvaluation==''||dat.matiere==''||dat.idClasse==''">-->
+
+          <!--<ion-icon name="sync-circle-outline" style="font-size: 20px"></ion-icon>-->
+
+        <!--</ion-button>-->
+      <!--</ion-col>-->
+    </ion-row>
+
+
+
+
+  </div>
+
+
+ <div *ngIf="Classes!=''">
+  <ion-list *ngFor="let m of Classes">
+
+    <ion-item  item-start>
+
+      <ion-avatar slot="start">
+
+        <img src="{{urlPhoto}}{{m.user.photo}}">
+
+      </ion-avatar>
+
+      <ion-label>
+
+        <h5> {{m.nom}}  </h5> <p> {{m.prenom}}</p>
+
+      </ion-label>
+
+      <span  item-end  *ngIf="m.valeur==null">
+
+          <ion-icon name="add-circle"(click)="detailsShow(m)" style="font-size:40px;color: #ff6b8a"> </ion-icon>
+
+
+      </span>
+
+      <span  item-end *ngIf="m.valeur!=null" >  <ion-badge > {{m.valeur}} / 20  </ion-badge> </span>
+
+
+    </ion-item>
+  </ion-list>
+  </div>
+  <br>
+
+  <h6 *ngIf="Classes==''" style="text-align: center;color: red">  Ces  notes  ne sont pas  disponibles </h6>
+
+</ion-content>

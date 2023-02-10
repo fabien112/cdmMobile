@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <!--<ions-buttons slot="start">-->
+      <!--<ion-menu-button ></ion-menu-button>-->
+    <!--</ions-buttons>-->
+
+    <ion-title >   Emploi du temps   </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+  <br>
+  <br>
+    <ion-card *ngFor="let m of times">
+      <ion-card-header color="primary">
+        <ion-card-subtitle style="text-align: center">{{m.libelleClasse}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <a href="{{urlPhoto}}{{m.emp_Classe}}" download="{{m.emp_Classe}}">
+
+    <img src="{{urlPhoto}}{{m.emp_Classe}}" height="100%" width="100%">
+
+  </a>
+
+
+
+  </ion-card>
+
+
+  </ion-content>
+
+
+  <!--<ion-footer>-->
+    <!--<ion-toolbar color="primary">-->
+      <!--<ion-title></ion-title>-->
+    <!--</ion-toolbar>-->
+<!--</ion-footer>-->
+

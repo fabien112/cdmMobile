@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title > Toutes vos absences </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="container" *ngIf="!Absences">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+
+    <div>
+      <img src="../../../assets/img/classes.PNG" alt="">
+    </div>
+
+    <ion-item-divider color="primary" *ngIf="Absences">
+      <p *ngIf="TotalHeure" style="color:white;text-align:center">
+        <strong> {{this.Absences.length}} absences pour un total de {{TotalHeure}} heure(s)  </strong>
+      </p>
+    </ion-item-divider>
+
+
+
+    <div *ngFor="let m of Absences" item-start>
+
+      <ion-list >
+
+        <ion-item lines="none">
+
+          <ion-label >
+            <h5>  {{m.dateHeure|date:'dd/MM/yy à HH:mm'}} ,  le cour a duré   <strong>{{m.duree}} </strong> heure(s) </h5>
+            <p> cour de   <strong> {{m.matiere}} </strong></p>
+          </ion-label>
+
+          <!--<ion-avatar slot="start">-->
+            <!--<img src="https://www.dynamique-mag.com/wp-content/uploads/53fc871993c8fccc5b409cc93f3ce25d.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<ion-label>-->
+            <!--<h5> Le {{m.dateHeure|date:'dd/MM/yy à HH:mm'}} </h5>-->
+            <!--<p> au cour de {{m.matiere}}</p>-->
+            <!--<p> le cour a duré   <strong>{{m.duree}} </strong> heure(s) </p>-->
+          <!--</ion-label>-->
+        </ion-item>
+      </ion-list>
+
+    </div>
+
+
+</ion-content>

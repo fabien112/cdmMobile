@@ -1,0 +1,67 @@
+
+<ion-content>
+
+  <div class="head">
+
+    <!--<ion-icon name="arrow-back-outline" class="iconb" (click)="HomePage()"></ion-icon>-->
+
+
+
+    <br><br>
+    <span style="color:darkgoldenrod;font-size:50px">X</span><ion-label >schoolink</ion-label>
+
+
+  </div>
+
+  <div class="form">
+
+
+    <form >
+
+
+      <ion-input placeholder=" &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;Saisir votre identifiant" name="login" type="text" [(ngModel)]="dat['login']" required></ion-input>
+      <br>
+
+
+      <ion-input placeholder="  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Saisir votre mot de passe " name="password" type="password" [(ngModel)]="dat['password']" required></ion-input>
+
+      <br><br>
+
+      <ion-button color="primary"   expand="block" (click)="onLogin()" [disabled]="dat.login==''||dat.password==''"> <ion-icon name="log-out-outline"></ion-icon>  &nbsp; Se connecter </ion-button>
+
+
+      <br>
+
+      <!--<ion-button color="dark"   expand="block" (click)="Send()" >Send </ion-button>-->
+
+
+
+    </form>
+
+
+    <div class="content">
+      <!--<ion-grid>-->
+      <!--<ion-row>-->
+      <!--<ion-col>-->
+      <!--<div>-->
+      <!--<ion-button routerLink="/check" color="primary" size="small" shape="round" expand="full">-->
+      <!--<ion-icon name="logo-facebook" slot="start"></ion-icon>-->
+      <!--<ion-label >Facebook</ion-label>-->
+      <!--</ion-button>-->
+      <!--</div>-->
+      <!--</ion-col>-->
+      <!--<ion-col offset-4>-->
+      <!--<div>-->
+      <!--<ion-button size="small" color="danger" shape="round" expand="full">-->
+      <!--<ion-icon name="logo-google" slot="start"></ion-icon>-->
+      <!--<ion-label >Google</ion-label>-->
+      <!--</ion-button>-->
+      <!--</div>-->
+      <!--</ion-col>-->
+      <!--</ion-row>-->
+      <!--</ion-grid>-->
+
+    </div>
+
+  </div>
+</ion-content>

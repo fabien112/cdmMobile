@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title >  Messages   </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circular">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <div class="container" *ngIf="!messages">
+    <ion-spinner name="lines" class="iteming"> </ion-spinner>
+  </div>
+
+  <br><br>
+
+  <ion-segment color="primary" [(ngModel)]="yudsegment">
+    <ion-segment-button value="today" checked >
+      <strong> <ion-icon style="font-size:25px" name="chatbox-ellipses-sharp"></ion-icon></strong>
+    </ion-segment-button>
+    <ion-segment-button value="heart">
+      <strong> <ion-icon style="font-size: 25px" name="paper-plane-sharp"></ion-icon></strong>
+    </ion-segment-button>
+    <ion-segment-button value="pin">
+      <strong> <ion-icon  style="font-size:25px" name="pencil"></ion-icon> </strong>
+    </ion-segment-button>
+  </ion-segment>
+
+  <br><br>
+
+
+    <div [ngSwitch]="yudsegment">
+
+      <div *ngSwitchCase="'today'">
+
+
+        <div  *ngFor="let m of messages">
+
+          <ion-list *ngIf="messages" >
+
+            <ion-item  item-start (click)="detailsShow(m)">
+              <!--<ion-avatar slot="start">-->
+                <!--<img src="../../../assets/img/images2.png">-->
+              <!--</ion-avatar>-->
+              <ion-label>
+
+                <h6> {{m.messages.object}} </h6>
+
+
+                <p> reçu le : {{m.messages.date|date:'dd/MM/yy à HH:mm'}} </p>
+
+
+
+                <p> {{ m.messages.commentaires.slice(0, 20)}}... <span style="color:rgb(38, 168, 243)"> Lire la suite   </span> </p>
+
+
+                <p style="color:#1d805e"  *ngIf="m.messages.statut==1">  <ion-badge color="primary">  déjà  lu</ion-badge> </p>
+
+                <p style="color:#ff5e18"  *ngIf="m.messages.statut==0">  <ion-badge color="danger">  non lu </ion-badge> </p>
+
+
+              </ion-label>
+
+
+              <!--<ion-icon name="arrow-forward-outline" item-end ></ion-icon>-->
+
+            </ion-item>
+
+
+          </ion-list>
+
+        </div>
+
+
+
+      </div>
+
+
+      <div *ngSwitchCase="'heart'">
+
+        <div  *ngFor="let m of messagesSend">
+
+          <ion-list *ngIf="messages" >
+
+            <ion-item  item-start (click)="detailsShow(m)">
+              <!--<ion-avatar slot="start">-->
+              <!--<img src="../../../assets/img/images2.png">-->
+              <!--</ion-avatar>-->
+              <ion-label>
+
+                <h6> {{m.messages.object}} </h6>
+
+                <p> Envoyé le : {{m.messages.date|date:'dd/MM/yy à HH:mm'}} </p>
+
+
+
+                <p> {{ m.messages.commentaires.slice(0, 20)}}... <span style="color:rgb(38, 168, 243)"> Lire la suite   </span> </p>
+
+
+              </ion-label>
+
+
+            </ion-item>
+
+
+          </ion-list>
+
+        </div>
+
+
+      </div>
+
+      <div *ngSwitchCase="'pin'">
+
+
+
+
+          <ion-item>
+
+            <ion-input [(ngModel)]="data.objet" placeholder="Objet" ></ion-input>
+
+
+          </ion-item>
+
+          <ion-item>
+
+            <ion-textarea [(ngModel)]="data.message"   rows="6" cols="20"  placeholder="Saisir le message... " ></ion-textarea>
+
+
+          </ion-item>
+
+          <ion-button  style="text-transform:none"  color="primary"    expand="full" (click)="Valider()"
+
+                       [disabled]="data.message==''||data.objet==''"
+                       >
+
+            Envoyer
+
+          </ion-button>
+
+
+
+
+        <!--<ion-item>-->
+
+          <!--<ion-input  [(ngModel)]= "data['objet']"   placeholder="Objet" clearOnEdit="true"></ion-input>-->
+
+
+        <!--</ion-item>-->
+
+        <!--<ion-item>-->
+
+          <!--<ion-textarea [(ngModel)]= "data['message']" rows="6" cols="20"  placeholder="Saisir le message... " clearOnEdit="true"></ion-textarea>-->
+
+
+        <!--</ion-item>-->
+
+        <!--<br>-->
+
+        <!--<ion-button style="text-transform:none" [disabled]="data.objet==''||data.message=='' "  color="primary"    expand="full" (click)="Valider()" >-->
+
+          <!--Envoyer-->
+
+        <!--</ion-button>-->
+
+      </div>
+
+    </div>
+
+
+
+
+</ion-content>

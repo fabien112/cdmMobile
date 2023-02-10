@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Détails du devoir </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div>
+    <img src="https://cache.magicmaman.com/data/photo/w1000_ci/59/enfantecolelecture.jpg" alt="">
+  </div>
+
+  <ion-card *ngIf="devoirDetails">
+    <ion-card-header color="primary">
+      <ion-card-title> {{devoirDetails.libelle}}   </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label> {{devoirDetails.matiere.libelle}} </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>{{devoirDetails.classe.libelleClasse}}</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label> Date limite : {{devoirDetails.dateLimite|date:'dd/MM/yy'}} </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>  publié le  : {{devoirDetails.created_at|date:'dd/MM/yy'}}
+            <br><br> Prefesseur :  {{devoirDetails.enseignants.nom}}
+              {{devoirDetails.enseignants.prenom}}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <!--<ion-row>-->
+    <!--<ion-col>-->
+      <!--<a href="{{urlPhoto}}{{devoirDetails.document}}">-->
+        <!--<ion-button expand="full"    color="primary" >-->
+          <!--Télécharger le devoir-->
+        <!--</ion-button>-->
+      <!--</a>-->
+
+    <!--</ion-col>-->
+
+    <!--<ion-col>-->
+      <!--<a *ngIf="devoirDetails.support!=''" href="{{urlPhoto}}{{devoirDetails.support}}" style="text-decoration:none">-->
+        <!--<ion-button expand="full"     color="danger" >-->
+          <!--Télécharger la correction-->
+        <!--</ion-button>-->
+
+      <!--</a>-->
+      <!--<a   *ngIf="devoirDetails.support==''" x href="#" style="text-decoration:none">-->
+        <!--<ion-button expand="full"   color="danger" >-->
+          <!--Correction non postée-->
+        <!--</ion-button>-->
+      <!--</a>-->
+    <!--</ion-col>-->
+  <!--</ion-row>-->
+
+
+
+</ion-content>
+
+
+<!--<ion-footer>-->
+  <!--<ion-toolbar color="primary">-->
+    <!--<ion-title></ion-title>-->
+  <!--</ion-toolbar>-->
+<!--</ion-footer>-->

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start" (click)="backPage">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title>Devoirs en ligne </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <div class="container" *ngIf="!devoirs">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+
+  <div *ngIf="devoirs">
+
+    <br>
+
+    <div *ngFor="let m of devoirs">
+
+      <ion-item (click)="details(m)" item-start>
+        <!--<ion-avatar slot="start">-->
+          <!--<img src="https://play-lh.googleusercontent.com/BkRfMfIRPR9hUnmIYGDgHHKjow-g18-ouP6B2ko__VnyUHSi1spcc78UtZ4sVUtBH4g">-->
+        <!--</ion-avatar>-->
+        <ion-label>
+          <h6>{{m.libelle}}</h6>
+          <p> {{m.matiere.libelle}} </p>
+          <p> crée le {{m.created_at|date:'dd/MM/yy'}}   </p>
+
+        </ion-label>
+
+        <ion-icon name="chevron-forward"  item-end ></ion-icon>
+
+      </ion-item>
+
+    </div>
+
+
+
+  </div>
+
+</ion-content>
+
+
+<!--<ion-footer>-->
+  <!--<ion-toolbar color="primary">-->
+    <!--<ion-title></ion-title>-->
+  <!--</ion-toolbar>-->
+<!--</ion-footer>-->

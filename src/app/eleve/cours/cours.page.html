@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title> Cours en ligne </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container" *ngIf="!cahiers">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+
+  <br>
+
+  <div *ngIf="cahiers">
+
+
+    <ion-card *ngFor="let m of cahiers">
+
+      <ion-list >
+
+        <ion-item   item-start lines= 'none'  >
+          <ion-avatar slot="start">
+            <img src="https://play-lh.googleusercontent.com/BkRfMfIRPR9hUnmIYGDgHHKjow-g18-ouP6B2ko__VnyUHSi1spcc78UtZ4sVUtBH4g">
+          </ion-avatar>
+          <ion-label>
+            <h6> <strong> {{m.chapitre}}</strong></h6>
+            <p>{{m.classe.libelleClasse}} , {{m.matiere.libelle}} </p>
+
+            <p>  cree le {{m.created_at|date:'dd/MM/yy'}} <br>  <strong> {{m.enseignants.nom}} {{m.enseignants.prenom}} </strong> </p>
+          </ion-label>
+
+
+          <ion-buttons  expand="full"  (click) = "presentActionSheet(m)"  >
+            <ion-icon slot="icon-only" item-end name="ellipsis-horizontal"></ion-icon>
+          </ion-buttons>
+
+        </ion-item>
+      </ion-list>
+
+    </ion-card>
+
+    <!--<ion-card *ngFor="let m of cahiers">-->
+    <!--<ion-card-header color="primary">-->
+    <!--<ion-card-subtitle><strong> {{m.chapitre}} </strong></ion-card-subtitle>-->
+    <!--</ion-card-header>-->
+    <!--<ion-card-content >-->
+    <!--<ion-list >-->
+    <!--<ion-item>-->
+    <!--<ion-label>-->
+    <!--<p>{{m.classe.libelleClasse}} </p>-->
+    <!--</ion-label>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+    <!--<ion-label>-->
+    <!--<p>{{m.matiere.libelle}}</p>-->
+    <!--</ion-label>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+    <!--<ion-span>-->
+    <!--<h2> Competences : </h2>-->
+    <!--<p>{{m.competence}}</p>-->
+    <!--</ion-span>-->
+    <!--</ion-item>-->
+    <!--<ion-item lines="none" >-->
+    <!--<ion-label>-->
+    <!--<p> Le {{m.created_at|date}} par  Mr/Mme {{m.enseignants.nom}} {{m.enseignants.prenom}} </p>-->
+    <!--</ion-label>-->
+    <!--</ion-item>-->
+    <!--<a href="{{urlPhoto}}{{m.document}}" style="text-decoration:none">-->
+    <!--<ion-button expand="full" fill="outline" shape="round"  color="primary" >-->
+    <!--Télécharger-->
+
+    <!--</ion-button>-->
+    <!--</a>-->
+
+    <!--</ion-list>-->
+    <!--</ion-card-content>-->
+
+    <!--</ion-card>-->
+  </div>
+
+</ion-content>

@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ions-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ions-buttons>
+
+    <ion-title >   Ajouter une note    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+
+    <ion-list>
+
+      <ion-item *ngIf="evaluations">
+        <ion-label> Evaluation  </ion-label>
+        <ion-select okText="Ok" cancelText="Annuler" [(ngModel)]="dat['libelleEvaluation']" interface="popover">
+          <ion-select-option value="{{evaluations.id}}"  >
+            {{evaluations.libelle}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Classe</ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']" interface="popover" (ionChange)="charger()">
+          <ion-select-option value={{m.classe.id}} *ngFor="let m of classes" >
+            {{m.classe.libelleClasse}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Matière</ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['matiere']">
+          <ion-select-option value={{m.id}} *ngFor="let m of maiteres" >
+            {{m.libelle}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> Elève </ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idEleve']" interface="popover" (ionChange)="charger()">
+          <ion-select-option value={{m.id}} *ngFor="let m of EleveListes" >
+            {{m.nom}} {{m.prenom}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+
+      <ion-item >
+        <ion-input  type="number"   [(ngModel)]="dat['note']"   placeholder=" Ajouter la note" ></ion-input>
+      </ion-item>
+
+
+
+    </ion-list>
+
+
+    <br>
+
+    <ion-button  color="primary"    expand="full" (click)="afficher()" [disabled]="dat.note==''||dat.libelleEvaluation==''||dat.matiere==''||dat.idClasse==''">
+
+      Enregistrer
+
+    </ion-button>
+
+
+  </div>  <br>
+
+  <!--<ion-card-subtitle *ngIf="Classes" style="text-align: center;color:#ff2e53;">-->
+  <!--Ajoutez une note pour chaque élève-->
+  <!--</ion-card-subtitle> <br>-->
+
+  <ion-list *ngFor="let m of Classes">
+
+    <ion-item  item-start>
+      <ion-avatar slot="start">
+
+        <img src="{{urlPhoto}}{{m.user.photo}}">
+
+      </ion-avatar>
+      <ion-label>
+
+        <h5>{{m.nom}}  </h5> <p> {{m.prenom}}</p>
+
+        <ion-input  type="number"    [(ngModel)]="Notes[m.id]"  placeholder=" Ajouter la note" ></ion-input>
+
+      </ion-label>
+    </ion-item>
+  </ion-list> <br>
+
+  <ion-button *ngIf="Classes" color="primary"    expand="full" (click)="Valider()">
+
+    Enregistrer
+
+  </ion-button>
+
+</ion-content>

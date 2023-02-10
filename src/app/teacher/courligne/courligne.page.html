@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="detailsShow()"> <ion-icon slot="icon-only" style="font-size:30px" name="add-outline"></ion-icon> </ion-button>
+    </ion-buttons>
+
+    <ion-title> Cours en ligne   </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container" *ngIf="!Liste">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+
+  <div>
+    <img width="100%" src="../../../assets/img/classes.PNG" alt="">
+  </div>
+
+  <br>
+
+  <ion-item *ngIf="Liste==''" style="color: #ff0f3a">
+    Aucun cours mis en ligne...
+  </ion-item>
+
+  <div *ngFor="let m of Liste">
+
+    <ion-list >
+
+
+      <ion-item  item-start>
+
+        <!--<ion-thumbnail slot="start">-->
+        <!--<img src="https://play-lh.googleusercontent.com/BkRfMfIRPR9hUnmIYGDgHHKjow-g18-ouP6B2ko__VnyUHSi1spcc78UtZ4sVUtBH4g">-->
+        <!--</ion-thumbnail>-->
+        <ion-label>
+
+          <h6 >  {{m.chapitre}}  </h6>
+
+          <p> {{m.classe.libelleClasse}}</p>
+
+          <p>{{ m.matiere.libelle }}</p>
+
+          <p *ngIf="m.statut==1"> <ion-badge color="primary">  Publié</ion-badge> </p>
+
+          <p *ngIf="m.statut==0"> <ion-badge color="danger">Non publié</ion-badge> </p>
+
+
+        </ion-label>
+
+        <ion-buttons  expand="full"  (click) = presentActionSheet(m)   >
+          <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+        </ion-buttons>
+
+
+      </ion-item>
+
+    </ion-list>
+
+
+  </div>
+
+</ion-content>

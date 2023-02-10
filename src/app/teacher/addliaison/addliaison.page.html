@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Ajouter    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+  <br>
+
+  <ion-item>
+    <ion-label>Classe</ion-label>
+    <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']" interface="popover" (ionChange)="charger()">
+      <ion-select-option value={{m.classe.id}} *ngFor="let m of classes" >
+        {{m.classe.libelleClasse}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Matière</ion-label>
+    <ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['matiere']" (ionChange)="chargerchapitre()">
+      <ion-select-option value={{m.id}} *ngFor="let m of maiteres" >
+        {{m.libelle}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >Date de début </ion-label>
+    <ion-input item-end type="date" [(ngModel)]="dat['dateDebut']"> </ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Date de fin  </ion-label>
+    <ion-input item-end type="date" [(ngModel)]="dat['dateFin']"> </ion-input>
+  </ion-item>
+
+  <br>
+
+  <div button (click)="readFile2()" lines="none">
+      <img src="http://angularscript.com/wp-content/uploads/2019/02/Awesome-Uploader-For-Angular.png">
+  </div>
+
+  <div><img src="{{returnFile}}" alt=""></div>
+
+  <br>
+
+
+  <ion-button  color="primary"    expand="full" (click)="Valider()" [disabled]="dat.matiere==''||dat.idClasse==''||dat.imageEmploiTmp==''">
+
+    Enregistrer
+
+  </ion-button>
+
+</ion-content>

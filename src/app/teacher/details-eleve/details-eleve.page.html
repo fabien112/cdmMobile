@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Détails sur l’élève  </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <br>
+  <div style="width:65%;margin: auto ;">
+    <img  src="{{urlPhoto}}{{parentEleveInfosTeacher.user.photo}}" alt="">
+  </div>
+  <div class="ion-padding">
+
+    <ion-segment color="primary" [(ngModel)]="yudsegment">
+      <ion-segment-button value="today">
+      Eleve
+      </ion-segment-button>
+      <ion-segment-button value="month">
+       Parent
+      </ion-segment-button>
+
+    </ion-segment>
+    <div [ngSwitch]="yudsegment">
+
+      <ion-list *ngSwitchCase="'today'">
+
+            <ion-item item-start lines="none">
+
+              <ion-label>
+
+                <p> <ion-icon name="person"></ion-icon> &nbsp;&nbsp;&nbsp; {{parentEleveInfosTeacher.user.nom}} {{parentEleveInfosTeacher.user.prenom}}</p>
+
+              </ion-label>
+
+
+            </ion-item>
+
+        <ion-item item-start lines="none">
+
+          <ion-label>
+
+
+
+            <p> <ion-icon name="grid"></ion-icon> &nbsp;&nbsp;&nbsp; Matricule : {{parentEleveInfosTeacher.matricule}} </p>
+
+          </ion-label>
+
+
+        </ion-item>
+
+
+        <ion-item item-start lines="none">
+
+          <ion-label>
+
+            <p> <ion-icon name="location"></ion-icon> &nbsp;&nbsp;&nbsp; {{parentEleveInfosTeacher.dateNaiss|date:'dd/MM/yy'}} à {{parentEleveInfosTeacher.lieuNaiss}}</p>
+
+          </ion-label>
+
+        </ion-item>
+
+
+        <ion-item item-start lines="none">
+
+        <ion-label>
+
+
+          <p> <ion-icon name="home"></ion-icon>  &nbsp;&nbsp;&nbsp; {{parentEleveInfosTeacher.classe.libelleClasse}} </p>
+
+        </ion-label>
+
+      </ion-item>
+
+        <ion-item item-start lines="none">
+
+          <ion-label>
+
+            <p> <ion-icon name="body"></ion-icon>&nbsp;&nbsp;&nbsp; Sexe :  {{parentEleveInfosTeacher.sexe}} </p>
+
+
+
+          </ion-label>
+
+
+        </ion-item>
+
+      </ion-list>
+      <ion-list *ngSwitchCase="'month'">
+
+        <ion-item item-start lines="none">
+
+          <ion-label>
+
+
+            <p> <ion-icon name="person"></ion-icon> &nbsp;&nbsp;&nbsp; {{parent.parent.nomParent}} {{parent.parent.prenomParent}}</p>
+
+          </ion-label>
+
+
+        </ion-item>
+
+        <ion-item item-start lines="none">
+
+          <ion-label>
+
+            <p> <ion-icon name="call"></ion-icon> &nbsp;&nbsp;&nbsp; {{parent.parent.telParent}} </p>
+
+            <h3>  </h3>
+
+          </ion-label>
+
+
+        </ion-item>
+
+
+        <ion-item item-start lines="none">
+
+          <ion-label>
+
+            <p><ion-icon name="planet"></ion-icon> &nbsp;&nbsp;&nbsp;{{parent.parent.professionParent}}  </p>
+
+            <h3> </h3>
+
+          </ion-label>
+
+        </ion-item>
+
+
+        <ion-item item-start lines="none">
+
+          <ion-label>
+
+            <p> <ion-icon name="location"></ion-icon> &nbsp;&nbsp;&nbsp;{{parent.parent.addressParent}} </p>
+
+
+          </ion-label>
+
+        </ion-item>
+
+
+      </ion-list>
+
+    </div>
+  </div>
+</ion-content>
+
+<!--<ion-footer>-->
+  <!--<ion-toolbar color="primary">-->
+    <!--<ion-title></ion-title>-->
+  <!--</ion-toolbar>-->
+<!--</ion-footer>-->
+

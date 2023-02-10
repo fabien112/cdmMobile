@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Gestion des notes  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content>
+    <br><br>
+    <ion-grid fixed >
+      <ion-row >
+        <ion-col>
+          <ion-card color="primary">
+            <div routerLink="../note">
+              <ion-icon name="add-circle"></ion-icon>
+              <p> Ajouter les notes   </p>
+            </div>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card color="dark">
+            <div routerLink="../noteteacher">
+              <ion-icon name="list-outline"></ion-icon>
+              <p> Gestion des  notes   </p>
+            </div>
+          </ion-card>
+        </ion-col>
+
+        <!--<ion-col>-->
+          <!--<ion-card color="dark">-->
+            <!--<div routerLink="../addnote-one">-->
+              <!--<ion-icon name="add-circle"></ion-icon>-->
+              <!--<p> Ajouter une note   </p>-->
+            <!--</div>-->
+          <!--</ion-card>-->
+        <!--</ion-col>-->
+
+
+
+      </ion-row>
+    </ion-grid>
+
+  </ion-content>
+

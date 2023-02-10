@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title> Cahier de texte </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+  <br><br>
+
+  <ion-item>
+    <ion-label >Date :   </ion-label>
+    <ion-input item-end type="date" [(ngModel)]="dat['date']"> </ion-input>
+  </ion-item>
+
+  <br>
+
+
+
+  <ion-button  color="primary"    expand="full" (click)="Valider()" [disabled]="dat['date']==''">
+
+    Envoyer
+
+  </ion-button>
+
+
+  <ion-item *ngIf="Liste==''" style="color: #ff0f3a">
+    Aucun contenu  posté par les enseignants ...
+  </ion-item>
+
+  <div *ngFor="let m of Liste">
+    <ion-list >
+
+      <ion-item  item-start (click)="detailsShow(m)">
+        <!--<ion-avatar slot="start">-->
+        <!--<img src="../../../assets/img/word1.png">-->
+        <!--</ion-avatar>-->
+        <ion-label>
+
+
+          <h6>  {{ m.matiere.libelle }} </h6>
+
+          <p> Enseignant :  {{m.user.nom}} {{m.user.prenom}} </p>
+
+        </ion-label>
+
+        <ion-icon name="chevron-forward"  item-end ></ion-icon>
+
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+
+
+
+</ion-content>
+

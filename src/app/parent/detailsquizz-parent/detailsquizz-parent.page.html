@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Détails du quizz </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div>
+    <img src="../../../assets/img/quizz.jpg" height="225px">  </div>
+
+  <ion-card *ngIf="devoirs">
+    <ion-card-header color="primary">
+      <ion-card-title> {{devoirs.libelle}}   </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label> {{devoirs.matiere.libelle}} </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>{{devoirs.classe.libelleClasse}}</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label> Date  : {{devoirs.date|date:'dd/MM/yy à HH:mm'}} </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label >  Durée : {{devoirs.duree}}  </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+
+      <ion-button shape="round" expand="full"  color="primary" >
+        Les questions du  quizz
+      </ion-button>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<!--<ion-footer>-->
+  <!--<ion-toolbar color="primary">-->
+    <!--<ion-title></ion-title>-->
+  <!--</ion-toolbar>-->
+<!--</ion-footer>-->

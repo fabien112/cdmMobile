@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title *ngIf="resp"> Compte élève   </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="header" *ngIf="resp">
+   <h5 style="color: white;text-align: center">   <span  style="color: white;text-align: center;font-size:14px;font-family:Arial Narrow">  </span> <strong>  </strong> </h5>
+  </div>
+
+  <div class="flex" *ngIf="resp">
+      <div class="box-border">
+      <div class="border-white">
+        <div class="img-box">
+          <img src="{{urlPhoto}}{{resp.user.photo}}">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div *ngIf="resp">
+      <ion-card-header color="primary">
+        <ion-card-title style="text-align: center">  <strong> {{resp.nom}} {{resp.prenom}} </strong></ion-card-title>
+      </ion-card-header>
+
+      <ion-list >
+        <ion-item lines="none">
+          <ion-label>
+            <p> <ion-icon name="calendar-number"></ion-icon> Année scolaire : &nbsp;&nbsp;   {{resp.classe.sessionClasse}} </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+
+            <p>   <ion-icon name="home"></ion-icon>  Classe : &nbsp;&nbsp;&nbsp; {{resp.classe.libelleClasse}} </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+
+            <p> <ion-icon name="location"></ion-icon>  née le &nbsp; {{resp.dateNaiss|date:'dd/MM/yy'}} à    {{resp.lieuNaiss}} </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>
+
+
+
+              <ion-icon name="body"></ion-icon>   Sexe :  &nbsp;
+              <span *ngIf="resp.sexe=='M'">Masculin</span>
+              <span *ngIf="resp.sexe=='F'">Feminin</span>
+           </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+
+            <p> <ion-icon name="grid"></ion-icon>  Matricule : &nbsp;&nbsp;&nbsp;&nbsp; {{resp.matricule}} </p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            <p>  <ion-icon name="browsers"></ion-icon>  Statut :  &nbsp;&nbsp; {{resp.doublant}}  dans la classe  </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+    </div>
+  </div>
+
+</ion-content>
+
+<!--<ion-footer>-->
+  <!--<ion-toolbar color="primary">-->
+    <!--<ion-title></ion-title>-->
+  <!--</ion-toolbar>-->
+<!--</ion-footer>-->

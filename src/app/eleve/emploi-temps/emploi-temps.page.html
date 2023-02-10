@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title> Emploi du temps </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen><br>
+
+  <div class="container" *ngIf="!res">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+  <div *ngIf="res">
+    <img src="{{urlPhoto}}{{res.classe.emp_Classe}}" />
+    <ion-card-header>
+      <ion-card-title ><ion-badge>{{res.classe.libelleClasse}}</ion-badge></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+       <p>Programmation des matieres dans votre classe  durant toute la semaine</p>
+    </ion-card-content>
+  </div>
+</ion-content>

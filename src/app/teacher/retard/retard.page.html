@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ions-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ions-buttons>
+
+    <ion-title >   Retards    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div class="form">
+
+
+
+    <ion-list>
+
+
+      <ion-item>
+
+        <label> Date  et heure :  </label>
+
+        <ion-input [(ngModel)]="dat['dateJour']" type="datetime-local"> </ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Classe</ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']" interface="popover" (ionChange)="charger()">
+          <ion-select-option value={{m.classe.id}} *ngFor="let m of classes" >
+            {{m.classe.libelleClasse}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Matière</ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['matiere']">
+          <ion-select-option value={{m.libelle}} *ngFor="let m of maiteres" >
+            {{m.libelle}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+
+      <ion-item>
+        <ion-label position="floating"> Durée du cour en heure  </ion-label>
+        <ion-input type="number" [(ngModel)]="dat['duree']" ></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+
+    <br>
+
+    <ion-button  color="primary"    expand="full" (click)="afficher()" [disabled]="dat.duree==''||dat.idClasse==''||dat.matiere==''||dat.dateJour==''">
+
+      Suivant
+
+    </ion-button>
+
+
+  </div>  <br>
+
+  <ion-card-subtitle *ngIf="students&&students!=''" style="text-align: center;color:#ff0f3a;">
+    COCHEZ UNIQUEMENT LES RETARDATAIRES
+  </ion-card-subtitle> <br>
+
+
+
+  <ion-list  *ngFor="let m of students">
+
+    <ion-item  *ngIf="students&&students!=''"  item-start>
+      <ion-thumbnail slot="start">
+
+        <ion-avatar>
+          <img src="{{urlPhoto}}{{m.user.photo}}">
+
+        </ion-avatar>
+
+      </ion-thumbnail>
+      <ion-label>
+
+        <h5>{{m.nom}}  </h5> <p> {{m.prenom}}</p>
+
+      </ion-label>
+      <ion-checkbox [(ngModel)]="m.checked" color="danger" > </ion-checkbox>
+    </ion-item>
+  </ion-list> <br>
+
+  <ion-button *ngIf="students" color="primary"    expand="full" (click)="Valider()">
+
+    Valider
+
+  </ion-button>
+
+
+
+
+</ion-content>
+
+
+

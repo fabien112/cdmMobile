@@ -1,0 +1,98 @@
+.head{
+
+  width: 100%;
+  height: 200px;
+  background:#1d805e;
+  //border-top-left-radius: 0px 0px;
+  //border-top-right-radius: 0px 0px;
+  //border-top-right-radius: 0px 0px;
+  //border-bottom-right-radius: 100px 30px;
+  //border-bottom-left-radius: 100px 30px;
+  background:url('../images/123.jpg');
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    color: white;
+  text-align: center;
+
+
+}
+ion-button {
+  text-transform: none;
+  --border-radius: 7px!important;
+}
+ion-label {
+
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  color: white;
+  text-align: center;
+  margin-top: auto;
+  padding-top: 10px;
+  color: white;
+
+  text-align: center;
+  margin-top: auto;
+  padding-top: 4px;
+
+  color: white;
+  font-size: x-small;
+
+}
+
+
+.form{
+
+  width: 80%;
+  margin : 0 auto;
+  padding-top: 90px;
+}
+
+.content{
+
+  padding-top: 10px;
+}
+
+ion-label{
+  font-size:smaller;
+}
+
+p{
+
+  text-align: center;
+
+  font-family: "Arial Narrow";
+
+  color: #868686;
+}
+
+
+
+.ligne_horizontal {
+  display: flex;
+  flex-direction: row;
+  font-family: "'Arial Narrow'";
+  color: #868686;
+}
+
+.ligne_horizontal:before,
+.ligne_horizontal:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid rgba(134, 134, 134, 0.55);
+  margin: auto;
+
+}
+
+.btng{
+  background-color: red;
+}
+
+ion-input{
+  border-radius: 10px;
+  border: solid 1px rgba(78, 78, 78, 0.47);
+}
+
+
+

@@ -1,0 +1,32 @@
+
+
+<ion-content fullscreen >
+
+  <div class="container" *ngIf="!Finance">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+  <div *ngIf="Finance">
+
+    <ion-card *ngFor="let m of Finance;let i = index" [attr.data-index]="i">
+
+      <ion-list >
+
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSRmHPY0UGdSxhgwsW0XypYTZmZGuCZXUApfHKZs_Ax6vm2muxW-phs0V4j95k99CwVA&usqp=CAU">
+          </ion-thumbnail>
+          <ion-label>
+            <p>   Versement {{Finance.length-i}} pour frais   de <br> <strong> {{m.motif|uppercase}}</strong>   </p>
+            <p> éffectué le  <strong>  {{m.date|date:'dd/MM/yy à HH:mm'}} </strong>  </p>
+            <p> la somme versée est de  <strong> {{m.montantverser}} FCFA </strong>  </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-card>
+
+  </div>
+
+
+</ion-content>

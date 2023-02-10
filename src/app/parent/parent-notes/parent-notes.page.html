@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Notes </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label> Séquence </ion-label>
+      <ion-select interface="popover"  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['libelleEvaluation']">
+        <ion-select-option value={{m.id}} *ngFor="let m of Liste" >
+          {{m.libelle}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+
+    <ion-button color="primary" expand="full" [disabled]="dat.libelleEvaluation==''" (click)="afficher()"> Envoyer </ion-button>
+
+  </ion-list>
+
+
+  <div>
+    <ion-list *ngIf="rep!=[]&&dec==1">
+
+      <ion-list-header> Bulletin de notes de la séquence </ion-list-header>
+      <ion-item *ngFor="let m of rep.datas" >
+        <ion-label>
+
+          <h4>{{m.matiere.libelle}}</h4>
+
+          <h6 style="font-size: 12px;">  <strong>{{m.mention}}</strong></h6>
+
+        </ion-label>
+        <p> {{m.valeur}} / 20 </p> <br>
+
+
+      </ion-item >
+
+      <ion-item lines="none">
+
+        <ion-label> <h2> <strong> Moyenne </strong></h2></ion-label>
+        <p> <strong> {{rep.moyenne}} / 20 </strong>  </p>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="rep!=[]&&dec==0">
+      <ion-item style="text-align: center;color: #ff6b8a" lines="none">
+
+        <ion-label>   Les notes ne sont pas encore disponibles  </ion-label>
+
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+
+
+
+</ion-content>

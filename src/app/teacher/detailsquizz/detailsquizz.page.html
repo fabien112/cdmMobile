@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Le questionnaire   </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="detailsquizz">
+
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-card-subtitle>{{detailsquizz.libelle}}</ion-card-subtitle>
+
+    </ion-card-header>
+
+    <ion-card-content >
+
+      <ion-item item-start>
+
+        <ion-label>
+
+          Classe
+
+        </ion-label>
+
+        <p> {{detailsquizz.classe.libelleClasse}}  </p>
+
+
+      </ion-item>
+
+      <ion-item item-start>
+
+        <ion-label>
+
+          Matière
+
+        </ion-label>
+
+        <p> {{detailsquizz.matiere.libelle}}   </p>
+
+
+      </ion-item>
+
+      <ion-item item-start>
+
+        <ion-label>
+
+         Date et heure
+
+        </ion-label>
+
+        <p> {{detailsquizz.date|date:'dd/MM/yy à HH:mm'}}   </p>
+
+
+      </ion-item>
+
+      <ion-item item-start >
+
+        <ion-label>
+
+        Durée
+
+        </ion-label>
+
+        <p> {{detailsquizz.duree}}   </p>
+
+
+      </ion-item>
+      <br>
+
+      <p> {{detailsquizz.consigne}}</p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-item-divider color="primary">
+    <ion-label>
+     Liste des questions
+    </ion-label>
+  </ion-item-divider>
+
+
+    <ion-card  *ngFor="let m of detailsquizz.question let k = index;">
+
+      <ion-card-header>
+        <ion-card-subtitle style="text-align:center"> Question {{k+1}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <p > {{m.libelle_question}}</p>
+        <p> Reponse : {{ m.resp_question }}</p>
+        <p> Point : {{ m.point }} pt(s) </p>
+
+      </ion-card-content>
+
+
+    </ion-card>
+
+</ion-content>

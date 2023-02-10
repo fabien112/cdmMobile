@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title > Disciplines  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<br><br> <br><br>
+<ion-content  *ngIf="Absences">
+
+  <ion-segment color="primary" [(ngModel)]="yudsegment">
+
+    <ion-segment-button value="pin">
+      <strong> <ion-icon style="font-size: 20px" name="flower"></ion-icon> Consignes  </strong>
+    </ion-segment-button>
+    <ion-segment-button value="today" checked >
+      <strong> <ion-icon style="font-size: 20px"  name="globe"></ion-icon>  Raetards</strong>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <br>
+
+  <div [ngSwitch]="yudsegment">
+
+    <div *ngSwitchCase="'today'">
+
+      <ion-list>
+
+        <ion-list-header color="primary">   Total consigne annuelle  : {{Absences.totalCon}} h   </ion-list-header>
+        <ion-item  *ngFor="let m of Absences.infosCon">
+          <ion-label>
+            <h6> En consigne le {{m.created_at|date:'dd/MM/yy'}} pour {{m.duree}} h </h6>
+            <p> Motif : {{m.motif}}    </p>
+          </ion-label>
+        </ion-item>
+
+      </ion-list>
+
+    </div>
+
+
+
+
+    <div *ngSwitchCase="'pin'">
+
+      <ion-list>
+
+        <ion-list-header  color="primary">   Total exclusion  annuelle  : {{Absences.totalExc}} j    </ion-list-header>
+        <ion-item  *ngFor="let m of Absences.infosEx">
+          <ion-label>
+            <h6> Exclu  le {{m.created_at|date:'dd/MM/yy'}} pour {{m.duree}} j  </h6>
+            <p> Motif : {{m.motif}}    </p>
+          </ion-label>
+        </ion-item>
+
+      </ion-list>
+
+
+    </div>
+
+
+  </div>
+
+
+</ion-content>

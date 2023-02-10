@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons  slot ="end"   (click) = "presentActionSheet(devoirDetails)" >
+      <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+    </ion-buttons>
+
+    <ion-title> Détails du devoir </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div>
+    <img src="../../../assets/img/enfantecolelecture.jpg">
+  </div>
+
+  <div *ngIf="devoirDetails">
+    <ion-card-header color="primary">
+      <ion-card-title> {{devoirDetails.libelle}}   </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label>
+            <p>  {{devoirDetails.matiere.libelle}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+
+            <p>{{devoirDetails.classe.libelleClasse}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+           <p> Date limite : {{devoirDetails.dateLimite|date:'dd/MM/yy'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+
+            <p> publié le  : {{devoirDetails.created_at|date:'dd/MM/yy'}}</p>
+
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            <p>
+             Professeur : {{devoirDetails.enseignants.nom}} {{devoirDetails.enseignants.prenom}}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </div>
+
+
+</ion-content>
+
+
+<!--<ion-footer>-->
+<!--<ion-toolbar color="primary">-->
+<!--<ion-title></ion-title>-->
+<!--</ion-toolbar>-->
+<!--</ion-footer>-->

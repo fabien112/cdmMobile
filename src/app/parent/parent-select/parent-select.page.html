@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Enseignements </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-grid fixed >
+    <ion-row >
+      <ion-col>
+        <ion-card color="primary">
+          <div routerLink="../emploi-temps-parent">
+            <ion-icon name="calendar-number-outline"></ion-icon>
+            <p> Emploi du temps  </p>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card color="tertiary">
+          <div routerLink="../absence-parent">
+            <ion-icon name="school-outline"></ion-icon>
+            <p>  Absences  </p>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card routerLink="../frais-parent/tranche2-parent" color="secondary">
+          <div >
+            <ion-icon name="cash-outline"></ion-icon>
+            <p>  Frais de scolarités   </p>
+          </div>
+        </ion-card>
+      </ion-col>
+
+
+      <ion-col>
+        <ion-card color="danger" routerLink="../parent-notes">
+          <div >
+            <ion-icon name="reader-outline"></ion-icon>
+            <p> Notes et bulletins  </p>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card  color="warning" (click) = "presentActionSheet()">
+          <div >
+            <ion-icon name="wallet-outline"></ion-icon>
+            <p>  Enseignement en ligne  </p>
+          </div>
+        </ion-card>
+      </ion-col>
+
+
+      <ion-col>
+        <ion-card  routerLink="../consigne">
+          <div >
+            <ion-icon name="reader-outline"></ion-icon>
+            <p> Disciplines   </p>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card color="primary" routerLink="../texte">
+          <div >
+            <ion-icon name="help-circle-outline"></ion-icon>
+            <p>  Cahier de texte    </p>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card color="dark" >
+          <div >
+            <ion-icon name="help-circle-outline"></ion-icon>
+            <p>  Autres   </p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<!--<ion-footer>-->
+<!--<ion-toolbar color="primary">-->
+<!--<ion-title></ion-title>-->
+<!--</ion-toolbar>-->
+<!--</ion-footer>-->

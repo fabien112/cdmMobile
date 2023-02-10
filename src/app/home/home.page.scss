@@ -1,27 +1,83 @@
-#container {
+.head{
+
+  width: 100%;
+  height: 570px;
+  //background: linear-gradient(#1d805e,#2d9941);
+  border-top-left-radius: 0px 0px;
+  border-top-right-radius: 0px 0px;
+  border-bottom-right-radius: 200px 30px;
+  border-bottom-left-radius: 200px 30px;
+  background:url('../images/123.jpg');
+
+}
+
+
+ion-label {
+
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  color: white;
+
+}
+
+ion-button {
+  text-transform: none;
+  --border-radius: 7px!important;
+
+}
+
+
+
+img{
+
+  padding-left: 160px;
+
+}
+ion-button {
+  text-transform: none;
+}
+.text{
+
   text-align: center;
+  margin-top: auto;
+  padding-top: 70px;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+label{
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 0.8px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
 
-  color: #8c8c8c;
+.text1{
 
-  margin: 0;
+  text-align: center;
+  margin-top: auto;
+  padding-top: 0px;
+
+  color: white;
+  font-size: x-small;
 }
 
-#container a {
-  text-decoration: none;
+.form{
+
+  width: 70%;
+  margin : 0 auto;
+  padding-top: 70px;
 }
+
+.content{
+
+  padding-top: 10px;
+}
+
+
+
+
+
+
+
+

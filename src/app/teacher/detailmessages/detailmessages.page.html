@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Message  </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <!--<ion-item lines ="none">-->
+      <!--<ion-label>Destinataire</ion-label>-->
+      <!--<p> Vous </p>-->
+    <!--</ion-item>-->
+
+    <ion-item lines ="none">
+      <ion-label> reçu le </ion-label>
+      <p> <ion-badge color="danger">{{message.messages.date|date:'dd/MM/yy à HH:mm'}}</ion-badge>  </p>
+    </ion-item>
+
+    <ion-item lines ="none">
+      <ion-label> Objet : </ion-label>
+      <p> <ion-badge>{{message.messages.object}}</ion-badge></p>
+    </ion-item>
+
+  </ion-list>
+
+  <p style="padding: 14px"> {{message.messages.commentaires}}  </p> <br><br>
+
+
+
+  <ion-list>
+
+
+    <ion-item lines ="none">
+      <ion-label>  <strong> Administration </strong></ion-label>
+      <!--<p> {{message.user.nom}} {{message.user.prenom}}</p>-->
+    </ion-item>
+
+    <ion-item lines ="none">
+     <div *ngIf="message.messages.document==null">
+
+      <p> <ion-badge> 0  piece jointe</ion-badge>  </p>
+
+    </div>
+
+      <div *ngIf="message.messages.document!=null">
+        <br>
+        <ion-label> <ion-badge>1 piece jointe </ion-badge>   </ion-label>
+        <p ><a href="{{urlPhoto}}{{message.messages.document}}"><img src="https://media.istockphoto.com/vectors/document-icon-vector-sign-and-symbol-isolated-on-white-background-vector-id1001154142"  width="20%" height="20%" alt=""></a>  </p>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>

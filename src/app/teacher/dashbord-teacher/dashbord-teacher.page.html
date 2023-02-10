@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title style="font-size: 13px"> {{user.nom}} {{user.prenom}} <br>
+      <span style="text-align:center; font-size:11px" class="ion-text-center"> professeur au Collège Des  Meilleurs </span>
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="resp" >
+
+
+  <div>
+    <img height="80%" width="100%" src="https://www.bienenseigner.com/wp-content/uploads/2020/11/Comment-faire-participer-les-eleves-en-classe-1280x720.jpg" alt="">
+  </div>
+
+  <!--<div class="header" *ngIf="user">-->
+
+  <!--</div>-->
+  <!--<div class="flex" *ngIf="user">-->
+    <!--<div class="box-border">-->
+      <!--<div class="border-white">-->
+        <!--<div class="img-box">-->
+          <!--<img src="../../../assets/img/profile.jpg">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div> <p></p><p></p>-->
+
+
+  <div >
+
+    <ion-list >
+
+      <ion-row>
+        <ion-col *ngFor="let m of resp"  size="6">
+          <ion-card  item-start (click)="details(m)">
+
+            <ion-card-header class="ion-text-center" color="primary">
+
+              <ion-subtitle>
+
+                {{m.classe.libelleClasse}}
+
+              </ion-subtitle>
+
+
+            </ion-card-header>
+
+            <!--<img src="../../../assets/img/classes.PNG">-->
+
+            <ion-card-content>
+
+            </ion-card-content>
+
+
+
+              <p class="ion-text-center" style="font-size:10px;">{{m.libelle}} </p>
+
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+  </div>
+
+
+  <!--<div *ngFor="let m of resp">-->
+
+    <!--<ion-list >-->
+
+      <!--<ion-item  item-start (click)="details(m)">-->
+        <!--<ion-thumbnail slot="start">-->
+          <!--<img src="../../../assets/img/classes.PNG">-->
+        <!--</ion-thumbnail>-->
+        <!--<ion-label>-->
+
+          <!--<h6> {{m.classe.libelleClasse}}</h6>-->
+          <!--<p>{{m.libelle}} </p>-->
+
+        <!--</ion-label>-->
+
+        <!--<ion-icon name="chevron-forward"  item-end ></ion-icon>-->
+
+      <!--</ion-item>-->
+    <!--</ion-list>-->
+
+  <!--</div>-->
+</ion-content>
+
+<!--<ion-footer>-->
+<!--<ion-toolbar color="primary">-->
+<!--<ion-title></ion-title>-->
+<!--</ion-toolbar>-->
+<!--</ion-footer>-->

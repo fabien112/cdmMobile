@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="detailsShow()"> <ion-icon style="font-size:30px" name="add"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title> Questionnaires </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="container" *ngIf="!Liste">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+  <div>
+    <img width="100%" src="../../../assets/img/classes.PNG" alt="">
+  </div>
+
+  <br>
+
+  <ion-item *ngIf="Liste==''" style="color: #ff0f3a">
+    Aucun questionnaire crée...
+  </ion-item>
+
+  <ion-list *ngFor="let m of Liste">
+
+    <ion-item  item-start >
+      <!--<ion-thumbnail slot="start">-->
+      <!--<img src="../../../assets/img/word1.png">-->
+      <!--</ion-thumbnail>-->
+      <ion-label>
+        <h6>  {{m.libelle}} </h6>
+        <p> {{m.classe.libelleClasse}}</p>
+        <p> {{ m.matiere.libelle }}
+        <p *ngIf="m.statut==1">  <ion-badge>publié</ion-badge>  </p>
+        <p> crée le {{ m.created_at | date:'dd/MM/yy à HH:mm'}} </p>
+        <span  *ngIf="m.statut==0">  <ion-badge color="danger"> non publié</ion-badge> </span>
+
+
+
+
+      </ion-label>
+
+      <ion-buttons  expand="full"  (click) = presentActionSheet(m)   >
+        <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+      </ion-buttons>
+
+
+
+      <!--<ion-button *ngIf="m.statut==0" expand="full" color="danger"  (click) = delate(m) >-->
+      <!--<ion-icon name="trash-outline" item-end></ion-icon>-->
+      <!--</ion-button>-->
+
+      <!--<ion-button *ngIf="m.statut==0" expand="full" color="dark"  (click) = publish(m) >-->
+      <!--<ion-icon item-end name="eye-off-outline"></ion-icon>-->
+      <!--</ion-button>-->
+
+      <!--<ion-button *ngIf="m.statut==1" expand="full" color="light" >-->
+      <!--<ion-icon item-end name="eye-outline"></ion-icon>-->
+      <!--</ion-button>-->
+
+
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

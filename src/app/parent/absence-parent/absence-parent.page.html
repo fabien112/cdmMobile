@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title >Absences </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container" *ngIf="!Absences">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+  <div>
+    <img src="../../../assets/img/classes.PNG" alt="">
+  </div>
+
+  <ion-item-divider color="primary">
+    <p *ngIf="TotalHeure!=''" style="color:white;text-align:center">
+      <strong>  {{this.Absences.length}} absence(s) avec un total de {{TotalHeure}}H  </strong>
+    </p>
+    <p *ngIf="TotalHeure==''" style="color:white;text-align:center">
+      <strong> 0 absence pour cet eleve   </strong>
+    </p>
+  </ion-item-divider>
+
+  <ion-list-header> Cet eleve  a été absent  le  </ion-list-header>
+
+
+  <!--<ion-card *ngFor="let m of Absences" item-start>-->
+
+  <ion-list >
+
+    <ion-item  *ngFor="let m of Absences" >
+
+      <!--<ion-thumbnail slot="start">-->
+      <!--<img src="https://www.dynamique-mag.com/wp-content/uploads/53fc871993c8fccc5b409cc93f3ce25d.jpg">-->
+      <!--</ion-thumbnail>-->
+     <!--<blockquote>-->
+
+       <ion-label >
+         <h5>  {{m.dateHeure|date:'dd/MM/yy à HH:mm'}} ,  le cour a duré   <strong>{{m.duree}} </strong> heure(s) </h5>
+         <p> cour de   <strong> {{m.matiere}} </strong></p>
+       </ion-label>
+     <!--</blockquote>-->
+    </ion-item>
+  </ion-list>
+
+<!--</ion-card>-->
+
+
+</ion-content>

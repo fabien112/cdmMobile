@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="detailsShow()"> <ion-icon slot="icon-only" style="font-size:30px" name="add-outline"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title> Cahiers de texte </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+
+
+
+  <div class="container" *ngIf="!Liste">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+  <div>
+    <img width="100%" height="80%" src="../../../assets/img/classes.PNG" alt="">
+  </div>
+
+  <br>
+
+  <ion-item *ngIf="Liste==''" style="color: #ff0f3a">
+    Aucun cahier de texte  crée...
+  </ion-item>
+
+  <div *ngFor="let m of Liste">
+    <ion-list >
+
+      <ion-item  item-start >
+        <!--<ion-thumbnail slot="start">-->
+        <!--<img height="50%" src="../../../assets/img/dossierjaune.jpg">-->
+        <!--</ion-thumbnail>-->
+        <ion-label>
+          <h6> {{m.classe.libelleClasse}}</h6>
+          <p> {{ m.matiere.libelle }}</p>
+          <p> crée le {{ m.created_at | date:'dd/MM/yy à HH:mm'}} </p>
+
+        </ion-label>
+
+        <!--<ion-button (click)="detailsShow2(m)" expand="full" color="primary"  >-->
+        <!--<ion-icon name="eye-outline" item-end></ion-icon>-->
+        <!--</ion-button>-->
+
+        <!--<ion-button  expand="full" color="danger"  (click) = delate(m) >-->
+        <!--<ion-icon name="trash-outline" item-end></ion-icon>-->
+        <!--</ion-button>-->
+
+
+        <ion-buttons  expand="full"  (click) = presentActionSheet(m)   >
+          <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+        </ion-buttons>
+
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

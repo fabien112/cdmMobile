@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Détails </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container" *ngIf="!Details">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+  <div>
+    <img width="100%" src="../../../assets/img/classes.PNG" alt="">
+  </div>
+
+
+
+  <ion-list>
+    <ion-item style="text-align: center" lines="none">
+
+      <ion-label>
+
+        <ion-badge> {{Details.syllabs.chapitre}} </ion-badge>
+
+      </ion-label>
+    </ion-item>
+
+
+    <ion-item lines="none">
+
+      <ion-label>
+
+        <ion-icon name="calendar-outline"></ion-icon> Date
+
+
+      </ion-label>
+
+      <p item-end> <ion-badge color="danger"> {{Details.created_at| date:'dd/MM/yy'}} </ion-badge> </p>
+    </ion-item>
+
+
+
+    <ion-item lines="none">
+
+      <ion-label>
+
+        <ion-icon name="time-outline"></ion-icon> Dureée du cour
+
+      </ion-label>
+
+      <p item-end> <ion-badge color="danger"> {{Details.duree}}h </ion-badge> </p>
+    </ion-item>
+
+
+
+
+
+  </ion-list>
+
+  <ion-card *ngFor="let m of Details.partie.partie">
+    <ion-card-header color="primary" style="text-align:center">
+      <ion-card-subtitle > {{m.partie}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <br>
+
+      <ul style="padding-left: 10px">
+
+        <li *ngFor="let sousp of m.souspartie.split('#')" >
+
+
+          {{sousp}}
+
+
+        </li>
+
+      </ul>
+
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

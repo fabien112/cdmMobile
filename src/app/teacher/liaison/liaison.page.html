@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ions-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="detailsShow()"> <ion-icon slot="icon-only" style="font-size:30px" name="add-outline"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title> Cahiers de liaison </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circular">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <div class="container" *ngIf="!Liste">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+  <div>
+    <img width="100%" src="../../../assets/img/classes.PNG" alt="">
+  </div>
+
+  <br>
+
+  <ion-item *ngIf="Liste==''" style="color: #ff0f3a">
+    Aucun cahier de liaison  crée...
+  </ion-item>
+
+
+  <ion-card *ngFor="let m of Liste">
+
+    <ion-list >
+
+
+      <ion-item  item-start  lines ='none'>
+
+        <ion-avatar slot="start">
+          <img src="https://play-lh.googleusercontent.com/BkRfMfIRPR9hUnmIYGDgHHKjow-g18-ouP6B2ko__VnyUHSi1spcc78UtZ4sVUtBH4g">
+        </ion-avatar>
+        <ion-label>
+
+          <h6 title="Cliquer ici pour enregistrer le document ">  Semaine( {{m.dateDeb| date:'dd/MM/yy'}} au {{m.dateFin| date:'dd/MM/yy'}})  </h6>
+
+          <p> {{m.classe.libelleClasse}} , {{ m.matiere.libelle }} </p>
+
+          <p *ngIf="m.statut==1"> <ion-badge color="primary">  Publié</ion-badge> </p>
+
+          <p *ngIf="m.statut==0"> <ion-badge color="danger">Non publié</ion-badge> </p>
+
+
+
+        </ion-label>
+
+        <ion-buttons  expand="full"  (click) = presentActionSheet(m)   >
+          <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+        </ion-buttons>
+
+
+      </ion-item>
+
+    </ion-list>
+
+
+  </ion-card>
+
+
+
+
+</ion-content>

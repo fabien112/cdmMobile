@@ -1,0 +1,108 @@
+
+<ion-content>
+  <div class="container" *ngIf="!Finance||!Classe">
+    <ion-spinner name="lines" class="iteming"></ion-spinner>
+  </div>
+
+  <ion-card *ngIf="Finance&&Classe">
+    <ion-card-header color="dark">
+      <ion-card-subtitle><strong> Inscription  </strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content >
+      <ion-list >
+        <ion-item>
+          <ion-label>
+            Totalalité
+
+          </ion-label>
+          <p>{{Classe.classe.scolariteaff_Classe}} F </p>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Déja payé
+
+          </ion-label>
+          <p>{{Finance.ape}} F </p>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="danger">
+            Reste
+
+          </ion-label>
+
+          <p>{{Classe.classe.scolariteaff_Classe - Finance.ape}} F </p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+  <ion-card *ngIf="Finance&&Classe">
+    <ion-card-header color="dark">
+      <ion-card-subtitle><strong> TRANCHE 1 </strong></ion-card-subtitle>
+    </ion-card-header >
+    <ion-card-content >
+      <ion-list >
+        <ion-item>
+          <ion-label>
+            Totalalité
+
+          </ion-label>
+
+          <p>{{Classe.classe.scolarite_Classe}} F </p>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Déja payé
+
+          </ion-label>
+          <p>{{Finance.tranche1}} F</p>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="danger">
+             Reste
+
+          </ion-label>
+          <p> {{Classe.classe.scolarite_Classe-Finance.tranche1}} F </p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card *ngIf="Finance&&Classe">
+    <ion-card-header color="dark">
+      <ion-card-subtitle><strong> TRANCHE 2 </strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content >
+      <ion-list >
+        <ion-item>
+          <ion-label>
+            Totalalité
+          </ion-label>
+          <p>{{Classe.classe.inscription_Classe}} F </p>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+           Déja payé
+
+          </ion-label>
+          <p>{{Finance.tranche2}} F </p>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="danger">
+            Reste
+
+          </ion-label>
+          <p>{{Classe.classe.inscription_Classe - Finance.tranche2}} F </p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+</ion-content>
