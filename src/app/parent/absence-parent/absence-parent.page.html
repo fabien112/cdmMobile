@@ -17,33 +17,77 @@
   </div>
 
   <ion-item-divider color="primary">
-    <p *ngIf="TotalHeure!=''" style="color:white;text-align:center">
-      <strong>  {{this.Absences.length}} absence(s) avec un total de {{TotalHeure}}H  </strong>
-    </p>
-    <p *ngIf="TotalHeure==''" style="color:white;text-align:center">
-      <strong> 0 absence pour cet eleve   </strong>
-    </p>
+    <!--<p *ngIf="TotalHeure!=''" style="color:white;text-align:center">-->
+      <!--<strong>  {{this.Absences.length}} absence(s) avec un total de {{TotalHeure}}H  </strong>-->
+    <!--</p>-->
+
+
+    <!--<p *ngIf="TotalHeure==''" style="color:white;text-align:center">-->
+      <!--<strong> 0 absence pour cet eleve   </strong>-->
+    <!--</p>-->
+    Historique des absences
+
   </ion-item-divider>
 
-  <ion-list-header> Cet eleve  a été absent  le  </ion-list-header>
+  <!--<ion-list-header>  </ion-list-header>-->
 
 
   <!--<ion-card *ngFor="let m of Absences" item-start>-->
 
-  <ion-list >
+  <ion-list *ngIf="Absences">
 
-    <ion-item  *ngFor="let m of Absences" >
+    <!--<ion-item  *ngFor="let m of Absences" >-->
+      <!---->
 
-      <!--<ion-thumbnail slot="start">-->
-      <!--<img src="https://www.dynamique-mag.com/wp-content/uploads/53fc871993c8fccc5b409cc93f3ce25d.jpg">-->
-      <!--</ion-thumbnail>-->
-     <!--<blockquote>-->
+       <!--<ion-label >-->
+         <!--<h5>  {{m.dateHeure|date:'dd/MM/yy à HH:mm'}} ,  le cour a duré   <strong>{{m.duree}} </strong> heure(s) </h5>-->
+         <!--<p> cour de   <strong> {{m.matiere}} </strong></p>-->
+       <!--</ion-label>-->
+    <!---->
+    <!--</ion-item>-->
 
-       <ion-label >
-         <h5>  {{m.dateHeure|date:'dd/MM/yy à HH:mm'}} ,  le cour a duré   <strong>{{m.duree}} </strong> heure(s) </h5>
-         <p> cour de   <strong> {{m.matiere}} </strong></p>
-       </ion-label>
-     <!--</blockquote>-->
+
+    <ion-item >
+
+
+      <ion-label >
+        <h5>   <strong> TRIMESTRE 1 </strong>  </h5>
+        <p>   Nombre total d'absence :  <strong> {{Absences['T1']}}   heure(s) </strong></p>
+      </ion-label>
+
+    </ion-item>
+
+
+    <ion-item>
+
+
+      <ion-label >
+        <h5>   <strong> TRIMESTRE 2 </strong>  </h5>
+        <p>   Nombre total d'absence :  <strong> {{Absences['T2']}} heure(s) </strong></p>
+      </ion-label>
+
+    </ion-item>
+
+
+    <ion-item >
+
+
+      <ion-label >
+        <h5>   <strong> TRIMESTRE 3 </strong>  </h5>
+        <p>  Nombre total d'absence :   <strong> {{Absences['T3']}}   heure(s) </strong></p>
+      </ion-label>
+
+    </ion-item>
+
+
+    <ion-item >
+
+
+      <ion-label >
+        <h5>   <strong> TOTLAL ANNUEL  </strong>  </h5>
+        <p>  Nombre total d'absence :   <strong> {{Absences['T1']+Absences['T2']+Absences['T3']}}   heure(s) </strong></p>
+      </ion-label>
+
     </ion-item>
   </ion-list>
 

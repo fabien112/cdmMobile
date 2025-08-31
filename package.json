@@ -21,12 +21,14 @@
     "@angular/router": "~13.0.0",
     "@awesome-cordova-plugins/file": "^5.42.0",
     "@awesome-cordova-plugins/local-notifications": "^5.45.0",
+    "@ionic-native/camera": "^5.36.0",
     "@ionic-native/downloader": "^5.36.0",
+    "@ionic-native/file": "^5.36.0",
     "@ionic-native/file-chooser": "^5.36.0",
     "@ionic-native/file-path": "^5.36.0",
+    "@ionic-native/file-transfer": "^5.36.0",
     "@ionic-native/http": "^5.36.0",
     "@ionic/angular": "^6.0.0",
-    "cordova": "^11.0.0",
     "ionic": "^5.4.16",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
@@ -53,6 +55,7 @@
     "cordova-plugin-advanced-http": "^3.3.1",
     "cordova-plugin-androidx-adapter": "^1.1.3",
     "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-camera": "^6.0.0",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-file": "^7.0.0",
     "cordova-plugin-filechooser": "^1.2.0",
@@ -95,7 +98,8 @@
       "cordova-plugin-filechooser": {},
       "cordova-plugin-filepath": {},
       "cordova-plugin-local-notification": {},
-      "cordova-plugin-androidx-adapter": {}
+      "cordova-plugin-androidx-adapter": {},
+      "cordova-plugin-camera": {}
     },
     "platforms": [
       "android"

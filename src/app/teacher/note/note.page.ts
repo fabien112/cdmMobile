@@ -139,7 +139,7 @@ export class NotePage implements OnInit {
         const toast = await this.toast.create({
             message: 'Notes enregistrées correctement ! ',
             color:'dark',
-            duration: 3000,
+            duration: 5000,
 
         });
         toast.present();
@@ -147,9 +147,9 @@ export class NotePage implements OnInit {
 
     async presentToast3() {
         const toast = await this.toast.create({
-            message: 'Les notes  saisient sont incorrects  ou existent deja , contactez le  o679901213 !',
+            message: 'Les notes  saisies sont incorrects  ou existent deja , contactez le M. EKOUTE au 693333162 !',
             color:'dark',
-            duration: 4000,
+            duration: 5000,
 
         });
         toast.present();
@@ -250,7 +250,7 @@ export class NotePage implements OnInit {
                                             delete this.dat[key];
                                         }
 
-                                        this.router.navigateByUrl('menu/noteteacher');
+                                       this.router.navigateByUrl('menu/noteteacher');
 
 
                                     }, error => {

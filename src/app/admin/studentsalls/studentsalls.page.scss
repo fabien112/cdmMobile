@@ -1,0 +1,17 @@
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iteming {
+  width: 10em;
+}
+
+.square-avatar {
+  width: 50px; /* Ajustez la taille selon vos besoins */
+  height: 50px; /* La même valeur pour une forme carrée */
+  overflow: hidden; /* Masque les débordements */
+  border-radius: 0; /* Aucune bordure arrondie */
+}

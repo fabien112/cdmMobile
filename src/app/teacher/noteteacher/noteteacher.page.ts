@@ -23,6 +23,8 @@ export class NoteteacherPage implements OnInit {
         libelleEvaluation:'',
         trimestre:'',
         classeName:'',
+        commune:'Non',
+        communeValue:'',
         idClasse:''
     };
 
@@ -69,10 +71,17 @@ export class NoteteacherPage implements OnInit {
                 },
             );
 
-
+        this.actua=false
     }
 
 
+    charger2(){
+
+        this.actua=false
+        this.dat.communeValue = ''
+
+
+    }
     async  detailsShow (data,i) {
 
 
@@ -95,6 +104,16 @@ export class NoteteacherPage implements OnInit {
 
     }
 
+
+    async presentToast() {
+        const toast = await this.toast.create({
+            message: 'Les note ont  correctement été enregistrées...',
+            color:'dark',
+            duration: 2000
+        });
+        toast.present();
+    }
+
     async presentLoadingWithOptions() {
         const loading = await this.loadingController.create({
             spinner:"bubbles"  ,
@@ -105,6 +124,67 @@ export class NoteteacherPage implements OnInit {
         });
 
         return await  loading.present();
+    }
+
+
+    async  Justifier(data) {
+
+
+
+
+        const alert = await  this.alertController.create({
+            cssClass: 'my-custom-class',
+            header: 'Confirmation !',
+            message: '<strong> Etes-vous sur de vouloir justifier cette note  ? </strong>',
+            buttons: [
+                {
+                    text: 'Annuler',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    id: 'cancel-button',
+                    handler: (blah) => {
+                        console.log('Confirm Cancel: blah');
+                    }
+                }, {
+                    text: 'Confirmer',
+                    id: 'confirm-button',
+
+                    handler: () => {
+
+
+                        this.presentLoadingWithOptions();
+                        this.teacher.JustifierNote(data) .
+                        subscribe(data=>{
+
+                                this.loadingController.dismiss();
+
+
+                            this.presentToast();
+
+                            this.afficher()
+                            },err=>{
+                                this.loadingController.dismiss();
+
+                            },
+                        );
+
+
+                        console.log(data)
+
+
+
+
+                    }
+
+
+                }
+
+            ]
+
+
+        });
+
+        await alert.present();
     }
 
 
@@ -119,6 +199,18 @@ export class NoteteacherPage implements OnInit {
         this.teacher.getStudentByTeacherVoirNote(this.dat)
             .subscribe(data=>{
                     this.Classes = data;
+
+
+
+                if (this.dat.commune === "Oui") {
+                    this.Classes.forEach(note => {
+                        note.valeur = this.dat.communeValue; // Affecter la valeur commune à chaque note
+                    });
+                }
+
+                this.Classes.forEach(note => {
+                    if (note.statusNote == 1) note.valeur = ""; // Affecter la valeur commune à chaque note
+                });
                 this.loadingController.dismiss();
                 },err=>{
 
@@ -127,6 +219,64 @@ export class NoteteacherPage implements OnInit {
 
 
     }
+
+
+    async ValiderNew(){
+
+        for (var item in this.Classes) {
+            let valeur = this.Classes[item]["valeur"];
+
+            this.Classes[item]["Ideval"] = this.dat.libelleEvaluation;
+            this.Classes[item]["Idmatiere"] = this.dat.matiere;
+            this.Classes[item]["Idtrimestre"] = this.dat.trimestre;
+            this.Classes[item]["Idclasse"] = this.dat.idClasse;
+
+            // Vérifie si la valeur n'est pas un nombre (NaN) ou est hors de l'intervalle 0-20
+            if (valeur > 20 || valeur < 0) {
+                var dec = true;
+                alert(
+                    " La ligne " +
+                    (parseInt(item) + 1) +
+                    " contient une note invalide. Assurez-vous d'entrer un nombre compris entre << 0 et 20 >>."
+                );
+                break;
+            } else {
+                dec = false;
+
+            }
+        }
+
+        if (dec == false) {
+
+            this.presentLoadingWithOptions();
+
+            this.teacher.addNoteNew(this.Classes)
+
+
+                .subscribe( data => {
+
+
+                    this.loadingController.dismiss();
+                    this.presentToast();
+
+                    //this.close();
+
+
+                },error => {
+
+                    this.loadingController.dismiss();
+
+                    this.presentToast();
+
+                });
+
+
+        }
+
+    }
+
+
+
 
     ionViewWillEnter(){
 

@@ -47,6 +47,12 @@ const routes: Routes = [
               loadChildren: () => import('../parent/dashbord-parent/dashbord-parent.module').then( m => m.DashbordParentPageModule)
           },
 
+
+          {
+              path: 'dashbord-admin',
+              loadChildren: () => import('../admin/dashbord-admin/dashbord-admin.module').then( m => m.DashbordAdminPageModule)
+          },
+
           {
               path: 'dashbord-teacher',
               loadChildren: () => import('../teacher/dashbord-teacher/dashbord-teacher.module').then( m => m.DashbordTeacherPageModule)

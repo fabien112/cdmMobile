@@ -115,10 +115,17 @@ const routes: Routes = [
   //   path: 'note',
   //   loadChildren: () => import('./parent/note/note.module').then( m => m.NotePageModule)
   // },
+
+
   {
-    path: 'parent-notes',
-    loadChildren: () => import('./parent/parent-notes/parent-notes.module').then( m => m.ParentNotesPageModule)
+    path: 'notetrimestre',
+    loadChildren: () => import('./parent/notetrimestre/notetrimestre.module').then( m => m.NotetrimestrePageModule)
   },
+
+    {
+        path: 'parent-notes',
+        loadChildren: () => import('./parent/parent-notes/parent-notes.module').then( m => m.ParentNotesPageModule)
+    },
   {
     path: 'syllabus',
     loadChildren: () => import('./teacher/syllabus/syllabus.module').then( m => m.SyllabusPageModule)
@@ -215,6 +222,30 @@ const routes: Routes = [
     path: 'editnote',
     loadChildren: () => import('./teacher/editnote/editnote.module').then( m => m.EditnotePageModule)
   },
+  {
+    path: 'in',
+    loadChildren: () => import('./admin/in/in.module').then( m => m.InPageModule)
+  },
+  {
+    path: 'dashbord-admin',
+    loadChildren: () => import('./admin/dashbord-admin/dashbord-admin.module').then( m => m.DashbordAdminPageModule)
+  },
+
+    {
+        path: 'classes-admin',
+        loadChildren: () => import('./admin/classes/classes.module').then( m => m.ClassesPageModule)
+    },
+
+    {
+        path: 'students-admin',
+        loadChildren: () => import('./admin/students/students.module').then( m => m.StudentsPageModule)
+    },
+
+  {
+    path: 'studentsalls',
+    loadChildren: () => import('./admin/studentsalls/studentsalls.module').then( m => m.StudentsallsPageModule)
+  },
+
   // {
   //   path: 'messages',
   //   loadChildren: () => import('./parent/messages/messages.module').then( m => m.MessagesPageModule)

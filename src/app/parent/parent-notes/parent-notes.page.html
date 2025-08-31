@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title> Notes </ion-title>
+    <ion-title> Notes de l'evaluation  </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
 
   <ion-list>
     <ion-item>
-      <ion-label> Séquence </ion-label>
+      <ion-label> Evaluation </ion-label>
       <ion-select interface="popover"  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['libelleEvaluation']">
         <ion-select-option value={{m.id}} *ngFor="let m of Liste" >
           {{m.libelle}}
@@ -28,25 +28,42 @@
   <div>
     <ion-list *ngIf="rep!=[]&&dec==1">
 
-      <ion-list-header> Bulletin de notes de la séquence </ion-list-header>
+      <!--<ion-list-header> Bulletin de notes de la séquence </ion-list-header>-->
+
+      <ion-item lines="none">
+
+        <ion-label> <h2> Moyenne </h2></ion-label>
+        <p>
+          <strong> {{rep.moyenne}} / 20 </strong>
+
+        </p>
+      </ion-item>
+
       <ion-item *ngFor="let m of rep.datas" >
         <ion-label>
 
-          <h4>{{m.matiere.libelle}}</h4>
+          <p>
 
-          <h6 style="font-size: 12px;">  <strong>{{m.mention}}</strong></h6>
+
+              {{m.matiere.libelle}}
+
+
+
+          </p>
+
+          <p>  <strong>{{m.mention}}</strong></p>
 
         </ion-label>
-        <p> {{m.valeur}} / 20 </p> <br>
+        <p>
+          <ion-badge>
+            {{m.valeur}}
+          </ion-badge>
+        </p> <br>
 
 
       </ion-item >
 
-      <ion-item lines="none">
 
-        <ion-label> <h2> <strong> Moyenne </strong></h2></ion-label>
-        <p> <strong> {{rep.moyenne}} / 20 </strong>  </p>
-      </ion-item>
     </ion-list>
     <ion-list *ngIf="rep!=[]&&dec==0">
       <ion-item style="text-align: center;color: #ff6b8a" lines="none">

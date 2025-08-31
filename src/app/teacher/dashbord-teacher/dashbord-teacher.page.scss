@@ -48,3 +48,24 @@
   border-radius: 50%;
   width: fit-content;
 }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px; /* Adjust this value as needed to position the button */
+  margin-bottom: 20px; /* Add space below the button */
+}
+
+ion-button {
+  --border-radius: 50%;
+  --width: 60px; /* Adjust size as needed */
+  --height: 60px; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.class-label {
+  font-size: 10px;
+  margin: 7px;
+}

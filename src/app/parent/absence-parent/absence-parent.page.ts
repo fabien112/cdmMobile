@@ -41,8 +41,8 @@ export class AbsenceParentPage implements OnInit {
         this.parent.getAbensesOfEleveclasseByEleve(this.user)
             .subscribe(data=>{
                     this.Absences = data;
-                    this.nbr = this.Absences.length;
-                    this.total()
+                    // this.nbr = this.Absences.length;
+                    // this.total()
 
                 this.loadingController.dismiss();
                 },err=>{
@@ -66,12 +66,12 @@ export class AbsenceParentPage implements OnInit {
 
 
 
-    total(){
-
-        for(let i=0;i<this.Absences.length;i++) {
-            this.TotalHeure = this.TotalHeure + parseInt(this.Absences[i].duree)
-
-        }
-    }
+    // total(){
+    //
+    //     for(let i=0;i<this.Absences.length;i++) {
+    //         this.TotalHeure = this.TotalHeure + parseInt(this.Absences[i].duree)
+    //
+    //     }
+    // }
 
 }

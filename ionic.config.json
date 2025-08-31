@@ -3,5 +3,12 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "proxy": {
+    "/api": {
+      "target": "https://cdu.infinitytech-proges.com",
+      "changeOrigin": true,
+      "secure": false
+    }
+  }
 }

@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'texte-detail',
     loadChildren: () => import('./texte-detail/texte-detail.module').then( m => m.TexteDetailPageModule)
+  },
+  {
+    path: 'notetrimestre',
+    loadChildren: () => import('./notetrimestre/notetrimestre.module').then( m => m.NotetrimestrePageModule)
   }
 ];
 

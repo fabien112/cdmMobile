@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestion des étudiants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- 📷 Bouton pour prendre une photo -->
+  <ion-button expand="full" (click)="takePhoto()">Prendre une photo</ion-button>
+
+  <!-- 📂 Input pour sélectionner une photo -->
+  <input type="file" (change)="selectPhoto($event)" accept="image/*" />
+
+  <!-- 🖼️ Aperçu de l’image sélectionnée -->
+  <div *ngIf="studentPhoto" class="preview-container">
+    <img [src]="studentPhoto" alt="Aperçu de l'image" class="photo-preview" />
+  </div>
+
+  <!-- 🚀 Bouton pour envoyer la photo -->
+  <ion-button expand="full" color="success" (click)="uploadPhoto()">Envoyer la photo</ion-button>
+</ion-content>

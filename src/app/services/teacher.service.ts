@@ -23,6 +23,28 @@ export class TeacherService {
 
     }
 
+
+    public addNoteNew(values)
+
+    {
+        return this.http.post<any>(this.apiUrl+'/teacher/AddNotenewversion',values,this.httpOptions);
+    }
+
+
+
+    public getTrimestreEtablissement(values)
+
+    {
+        return this.http.post<any>(this.apiUrl+'/locale/getTrimestreEtablissement',values,this.httpOptions);
+    }
+
+
+    public JustifierNote(values)
+
+    {
+        return this.http.post<any>(this.apiUrl+'/teacher/JustifierNote',values,this.httpOptions);
+    }
+
     public getInfosTeacher(values)
 
     {
@@ -147,9 +169,14 @@ export class TeacherService {
         return this.http.post<any>(this.apiUrl+'/teacher/getAllEvaluationsByParent',values,this.httpOptions);
     }
 
+    public  getBulletinEleveByParentTrimestre  (values) {
+
+        return this.http.post<any>(this.apiUrl+'/teacher/getBulletinEleveByParentTrimestre',values,this.httpOptions);
+    }
+
     public  getBulletinEleveByParent  (values) {
 
-        return this.http.post<any>(this.apiUrl+'/teacher/getBulletinEleveByParent',values,this.httpOptions);
+        return this.http.post<any>(this.apiUrl+'/teacher/getBulletinEleveByParentTrimestre',values,this.httpOptions);
     }
 
     public  getAllSyllabusByATeacher  (values) {

@@ -12,6 +12,9 @@ import {FileChooser} from "@ionic-native/file-chooser/ngx";
 import {FilePath} from "@ionic-native/file-path/ngx";
 import { DetailsquizzPipe } from './teacher/detailsquizz.pipe';
 import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
+import { Camera } from '@ionic-native/camera/ngx'; // Ajoutez cette ligne
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+
 
 
 
@@ -27,6 +30,8 @@ import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications
       FileChooser,
       FilePath,
       LocalNotifications,
+      Camera,
+      HttpClientModule,
 
       { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,}
 

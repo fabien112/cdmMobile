@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Classes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Spinner pendant le chargement -->
+  <div class="container" *ngIf="!Classes">
+    <ion-spinner name="lines" class="iteming"> </ion-spinner>
+  </div>
+
+  <!-- Conteneur des cartes de classe -->
+  <div class="card-container" *ngFor="let m of Classes">
+    <ion-card class="custom-card" (click)="details(m.id)">
+      <ion-card-header>
+        <ion-card-title>{{m.libelleClasse}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="card-content">
+        <!-- Contenu des informations sur les élèves et professeur -->
+        <div class="info-container">
+          <!-- Icône et total d'élèves -->
+          <div class="content-item">
+            <ion-icon name="people-outline" class="icon"></ion-icon>
+            <span>{{m.eleves.length}} élèves</span>
+          </div>
+          <!-- Icône et nom du professeur principal -->
+          <div class="content-item">
+            <ion-icon name="person-outline" class="icon"></ion-icon>
+            <span>{{m.enseignantPrincipal.nom}} {{m.enseignantPrincipal.prenom}}</span>
+          </div>
+        </div>
+        <!-- Icône de flèche pour voir plus de détails -->
+        <ion-icon name="arrow-forward-circle-outline" class="icon-large"></ion-icon>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

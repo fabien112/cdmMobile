@@ -13,7 +13,7 @@
        <!--</ion-button>-->
      <!--</ion-buttons>-->
 
-    <ion-title >   Ajouter une note    </ion-title>
+    <ion-title >   Ajout de notes    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,8 +24,8 @@
 
     <ion-list>
       <ion-item>
-        <ion-label>Classe</ion-label>
-        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']" interface="popover" (ionChange)="charger()">
+        <ion-label>Classes</ion-label>
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']"  (ionChange)="charger()">
           <ion-select-option value={{m.classe.id}} *ngFor="let m of classes" >
             {{m.classe.libelleClasse}}
           </ion-select-option>
@@ -34,7 +34,7 @@
 
       <ion-item>
         <ion-label>Matière</ion-label>
-        <ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['matiere']">
+        <ion-select  okText="Ok" cancelText="Annuler"  [(ngModel)]="dat['matiere']">
           <ion-select-option value={{m.libelle}} *ngFor="let m of maiteres" >
             {{m.libelle}}
           </ion-select-option>
@@ -43,7 +43,7 @@
 
       <ion-item *ngIf="trimestres">
       <ion-label> Trimestre  </ion-label>
-      <ion-select okText="Ok" cancelText="Annuler" [(ngModel)]="dat['trimestre']" interface="popover">
+      <ion-select okText="Ok" cancelText="Annuler" [(ngModel)]="dat['trimestre']" >
         <ion-select-option value="{{trimestres.id}}"  >
           {{trimestres.libelle_semes}}
         </ion-select-option>
@@ -52,10 +52,16 @@
 
       <ion-item *ngIf="evaluations">
         <ion-label> Evaluation en cour  </ion-label>
-        <ion-select okText="Ok" cancelText="Annuler" [(ngModel)]="dat['libelleEvaluation']" interface="popover">
-          <ion-select-option value="{{evaluations.id}}"  >
-            {{evaluations.libelle}}
+        <ion-select okText="Ok" cancelText="Annuler" [(ngModel)]="dat['libelleEvaluation']" >
+
+
+
+          <ion-select-option value={{m.id}} *ngFor="let m of evaluations" >
+            {{m.libelle}}
           </ion-select-option>
+
+
+
         </ion-select>
       </ion-item>
 
@@ -80,14 +86,14 @@
   <ion-list *ngFor="let m of Classes">
 
     <ion-item  item-start>
-      <ion-avatar slot="start">
+      <!--<ion-avatar slot="start">-->
 
-          <img src="{{urlPhoto}}{{m.user.photo}}">
+          <!--<img src="{{urlPhoto}}{{m.user.photo}}">-->
 
-      </ion-avatar>
+      <!--</ion-avatar>-->
       <ion-label>
 
-        <h5>{{m.nom}}  </h5> <p> {{m.prenom}}</p>
+     <p> {{m.nom}} {{m.prenom}}</p>
 
         <ion-input  type="number"    [(ngModel)]="Notes[m.id]"  placeholder=" Ajouter la note" ></ion-input>
 

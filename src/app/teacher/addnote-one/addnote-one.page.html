@@ -26,7 +26,7 @@
 
       <ion-item>
         <ion-label>Classe</ion-label>
-        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']" interface="popover" (ionChange)="charger()">
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idClasse']"  (ionChange)="charger()">
           <ion-select-option value={{m.classe.id}} *ngFor="let m of classes" >
             {{m.classe.libelleClasse}}
           </ion-select-option>
@@ -35,7 +35,7 @@
 
       <ion-item>
         <ion-label>Matière</ion-label>
-        <ion-select  okText="Ok" cancelText="Annuler" interface="popover" [(ngModel)]="dat['matiere']">
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['matiere']">
           <ion-select-option value={{m.id}} *ngFor="let m of maiteres" >
             {{m.libelle}}
           </ion-select-option>
@@ -44,7 +44,7 @@
 
       <ion-item>
         <ion-label> Elève </ion-label>
-        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idEleve']" interface="popover" (ionChange)="charger()">
+        <ion-select  okText="Ok" cancelText="Annuler" [(ngModel)]="dat['idEleve']"  (ionChange)="charger()">
           <ion-select-option value={{m.id}} *ngFor="let m of EleveListes" >
             {{m.nom}} {{m.prenom}}
           </ion-select-option>

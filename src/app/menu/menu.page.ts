@@ -34,6 +34,14 @@ menus = []; user = <any> {}; titreMenu : any;
 
     ];
 
+
+    menusAdmin = [
+        {title: "Acceuil", url: "menu/dashbord-admin", icon: "calendar"},
+        {title: "Classes", url: "menu/classes", icon: "calendar"},
+        {title: "Deconnexion", url: "/login", icon: "log-out"},
+
+    ];
+
     // Menu eleve
 
     menusEnseignant = [
@@ -43,9 +51,13 @@ menus = []; user = <any> {}; titreMenu : any;
         {title: "Retards", url: "menu/retard", icon: "albums"},
         {title: "Syllabus ", url: "menu/syllabus", icon: "school"},
         {title: "Cahiers de texte  ", url: "menu/texbooks", icon: "bookmarks"},
-        {title: "En ligne ", url: "menu/enligne", icon: "desktop"},
-        {title: "Notes", url: "menu/noteselect", icon: "bookmarks"},
-        {title: "Emploi du temps", url: "menu/timetable", icon: "book"},
+        //{title: "En ligne ", url: "menu/enligne", icon: "desktop"},
+
+
+        {title: "Notes", url: "menu/noteteacher", icon: "bookmarks"},
+
+
+        //{title: "Emploi du temps", url: "menu/timetable", icon: "book"},
         {title: "Messages", url: "menu/messages", icon: "chatbox-ellipses"},
         {title: "Deconnexion", url: "/login", icon: "log-out"},
     ];
@@ -74,6 +86,13 @@ menus = []; user = <any> {}; titreMenu : any;
           this.menus = this.menusEnseignant
 
           this.titreMenu = "ENSEIGNANT";
+      }
+
+      if(this.user.type=='Admin_locale'){
+
+          this.menus = this.menusAdmin
+
+          this.titreMenu = "Admin";
       }
 
 

@@ -83,6 +83,18 @@ export class LoginPage implements OnInit {
                           localStorage.setItem("user",JSON.stringify(this.res.userDatas));
                           this.router.navigateByUrl('menu/dashbord-teacher')
                       }
+
+                      if(this.res.userDatas.type=='Enseignant'){
+                          this.isConnected=1;
+                          localStorage.setItem("user",JSON.stringify(this.res.userDatas));
+                          this.router.navigateByUrl('menu/dashbord-teacher')
+                      }
+
+                      if(this.res.userDatas.type=='Admin_locale'){
+                          this.isConnected=1;
+                          localStorage.setItem("user",JSON.stringify(this.res.userDatas));
+                          this.router.navigateByUrl('menu/dashbord-admin')
+                      }
                   }
                   else{
 

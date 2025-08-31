@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title >  <span *ngIf="Classes"> {{Classes[0].classe.libelleClasse}}</span>  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="container" *ngIf="!Classes">
+    <ion-spinner name="lines" class="iteming"> </ion-spinner>
+  </div>
+
+  <!--<div>-->
+  <!--<img width="100%" src="../../../assets/img/classes.PNG" alt="">-->
+  <!--</div>-->
+
+  <div *ngFor="let m of Classes">
+
+    <ion-list >
+
+      <ion-item  item-start  (click)="details(m)" >
+        <ion-thumbnail slot="start" class="square-avatar">
+          <!--<img src="{{urlPhoto}}{{m.user.photo}}">-->
+          <img src="{{urlPhoto}}{{m.user.photo}}">
+        </ion-thumbnail>
+        <ion-label>
+          <h6 style="font-size: 13px">{{m.nom}}   {{m.prenom}} </h6>
+
+
+          <p style="font-size: 12px">{{m.dateNaiss|date:'dd/MM/yy'}} à {{m.lieuNaiss}}</p>
+
+          <p style="font-size: 10px">{{m.matricule}}</p>
+
+
+
+        </ion-label>
+
+
+        <!--<ion-icon name="arrow-forward-outline" item-end ></ion-icon>-->
+
+        <ion-icon name="arrow-forward-outline"  item-end ></ion-icon>
+
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+
+</ion-content>
+
+
+

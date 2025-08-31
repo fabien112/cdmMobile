@@ -1,0 +1,86 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ions-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ions-buttons>
+    <ion-title style="font-size: 13px"> Administrateur <br>
+      <span style="text-align:center; font-size:11px" class="ion-text-center">vous etes le boss de la plateforme  </span>
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <img height="80%" width="100%" src="https://www.socialnetlink.org/wp-content/uploads/2020/06/education-afrique.jpg" alt="">
+  </div>
+
+  <div class="card-container">
+    <ion-card class="custom-card" (click)="details(1)">
+      <ion-card-header>
+        <ion-card-title>STT1</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+       Technologie du tierciere cycle 1
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="custom-card" (click)="details(2)">
+      <ion-card-header>
+        <ion-card-title>STT2</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Technologie du tierciere cycle 2
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="card-container" (click)="details(3)">
+    <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title>STI2 </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Technologie industrielle cyle 1
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="custom-card" (click)="details(4)">
+      <ion-card-header>
+        <ion-card-title>STI2</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Technologie industrielle cyle 2
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<style>
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  .custom-card {
+    flex: 1;
+    margin: 0 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  ion-card-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  ion-card-content {
+    font-size: 14px;
+    color: #555;
+  }
+</style>
